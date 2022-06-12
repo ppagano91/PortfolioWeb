@@ -1,0 +1,55 @@
+/* ******* Styles ******* */
+
+/* Header */
+
+.header-container {
+  background-color: var(--secondary-85);
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  margin: 0;
+}
+
+.header-nav {
+  /* background-color: var(--secondary-85); */
+  text-align: center;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.justify-end-to-center {
+  display: flex;
+  justify-content: flex-end;
+}
+@media (min-width: 642px) {
+  .justify-end-to-center {
+    justify-content: center;
+  }
+}
+/* Header Icon lines*/
+.icon-lines {
+  display: inline-block;
+  position: relative;
+  left: 6rem;
+}
+
+.icon-lines::after,
+.icon-lines::before {
+  content: "";
+  position: absolute;
+  width: 5.3rem;
+  height: 0.25rem;
+  background-color: var(--primary);
+  top: 0.8rem;
+}
+.icon-lines::before {
+  left: -5.5rem;
+}
+.icon-lines::after {
+  left: 4.1rem;
+}
