@@ -1,0 +1,12 @@
+.about-container {
+  margin: 0;
+  background-color: var(--secondary);
+  color: var(--white);
+}
+.about-image {
+  border-radius: 50%;
+}
+
+.about-text {
+  text-align: justify;
+}
