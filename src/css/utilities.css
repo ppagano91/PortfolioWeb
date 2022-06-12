@@ -1,0 +1,58 @@
+/*Heading lines*/
+.h2-lines {
+  display: inline-block;
+  position: relative;
+  left: 5rem;
+}
+
+.h2-lines::after,
+.h2-lines::before {
+  content: "";
+  position: absolute;
+  width: 4rem;
+  height: 0.25rem;
+  background-color: var(--primary);
+  top: 1.5rem;
+}
+.h2-lines::before {
+  left: -5rem;
+}
+.h2-lines::after {
+  right: -5rem;
+}
+
+.heading-lines {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 3rem;
+}
+.heading-lines::after,
+.heading-lines::before {
+  content: "";
+  position: absolute;
+  width: 7rem;
+  height: 0.4rem;
+
+  background-repeat: no-repeat;
+}
+.heading-lines::before {
+  left: 0.7rem;
+  top: 3.5rem;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    var(--primary) 30%,
+    var(--accessories) 80%,
+    transparent 100%
+  );
+}
+.heading-lines::after {
+  left: 3.1rem;
+  top: 2.7rem;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    var(--primary) 30%,
+    transparent 100%
+  );
+}

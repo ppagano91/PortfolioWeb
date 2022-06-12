@@ -1,0 +1,37 @@
+:root {
+  --primary: #f24109;
+  --secondary: #1d243e;
+  --secondary-85: rgba(29, 36, 62, 0.85);
+  --white: #fff;
+  --light-grey: #f3f3f3;
+  --grey: #ccc;
+  --dark-grey: #666;
+  --dark2-grey: #333;
+  --dark3-grey: #222;
+  --black: #000;
+  --accessories: #509ee3;
+  --white-50: #ffffff80;
+  --black-50: rgba(0, 0, 0, 0.5);
+
+  --font: "Consolas", sans-serif;
+}
+
+/* :root{
+  --primary:#DF01A1;
+  --primary-75:rgba(223,1,161,0.75);
+  --secondary:#14192D;
+  --secondary-85:rgba(45,35,57,0.85);
+  --white:#fff;
+  --light-grey:#f3f3f3;
+  --grey:#ccc;
+  --dark-grey:#666;
+  --dark2-grey:#333;
+  --dark3-grey:#222;
+  --black:#000;
+  --accessories:#509ee3;
+  --white-50:rgba(255,255,255,0.5);
+  --white:#fff;
+  --black-50:rgba(0,0,0,0.5);
+
+  --font:'Spartan', sans-serif;
+} */
