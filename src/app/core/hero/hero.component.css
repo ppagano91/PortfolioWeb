@@ -1,0 +1,52 @@
+.hero {
+  background-color: rgba(0, 0, 0, 0.85);
+  padding-top: 5rem;
+  margin: 0 auto;
+  min-height: 40rem;
+  background-image: url(../../../assets/images/emile-perron-xrVDYZRGdw4-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+/* @media (min-width: 768px) {
+  .hero {
+    min-height: 10rem;
+  }
+} */
+.hero h1 {
+  color: var(--secondary);
+  /* padding-bottom: 2rem; */
+}
+.hero h3 {
+  color: var(--secondary);
+}
+
+.hero-lines {
+  /* display: inline-block; */
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.hero-lines::after,
+.hero-lines::before {
+  content: "";
+  position: absolute;
+  width: 20rem;
+  height: 0.5rem;
+  background: linear-gradient(
+    200deg,
+    transparent 0%,
+    var(--primary) 30%,
+    transparent 100%
+  );
+  /* background-repeat: no-repeat; */
+}
+.hero-lines::before {
+  /* background: var(--secondary) 30%; */
+  left: 1rem;
+  /* top: 1.9rem; */
+}
+.hero-lines::after {
+  left: 4rem;
+  top: 1rem;
+}
