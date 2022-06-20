@@ -1,0 +1,11 @@
+.card-height{
+  height: 100%;
+}
+
+.project-image{
+  height: 30rem;
+  object-fit: cover;
+  width: 100%;
+  /* background-color: rgb(50, 50, 50); */
+
+}
