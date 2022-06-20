@@ -2,10 +2,19 @@
   height: 100%;
 }
 
+.projects-container{
+  margin: 0 auto;
+}
+
 .project-image{
   height: 30rem;
   object-fit: cover;
   width: 100%;
   /* background-color: rgb(50, 50, 50); */
+}
+
+.card-footer{
+  background-color: transparent;
+  border-top: none;
 
 }
