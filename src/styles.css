@@ -4,27 +4,3 @@
 @import "./css/utilities.css";
 @import "./app/core/components/header/header.component.css";
 
-/*Skills*/
-.sk-img {
-  max-width: 5rem;
-  display: block;
-  margin: 0px auto;
-}
-
-/*Projects*/
-.card-height1 {
-  height: 95%;
-}
-
-/*Contact*/
-.contact-img {
-  margin: 1rem auto 0 auto;
-}
-.card-height {
-  height: 95%;
-}
-
-/*Footer*/
-.footer {
-  background-color: var(--secondary);
-}
