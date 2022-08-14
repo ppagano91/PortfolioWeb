@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Persona } from 'src/app/model/persona';
-import { PersonaService } from 'src/app/services/persona.service';
+import { PersonaService } from 'src/app/services/persona/persona.service';
 
 @Component({
   selector: 'app-about',
