@@ -5,6 +5,7 @@ import { SkillsComponent } from './skills/skills.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ContactComponent } from './contact/contact.component';
 import { EducationComponent } from './education/education.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,15 @@ import { EducationComponent } from './education/education.component';
     ContactComponent,
     EducationComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, NgCircleProgressModule.forRoot({
+    
+    radius: 100,
+    outerStrokeWidth: 16,
+    innerStrokeWidth: 8,
+    outerStrokeColor: "#78C000",
+    innerStrokeColor: "#C7E596",
+    animationDuration: 300,    
+  })],
   exports: [
     AboutComponent,
     SkillsComponent,
