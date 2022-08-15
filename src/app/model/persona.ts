@@ -8,8 +8,11 @@ export class Persona {
     residencia:String;
     fechaNacimiento: Date;
     foto: String;
+    github:String;
+    instagram:String;
+    linkedin:String;
 
-    constructor(nombre: String, apellido: String, email:String, sobreMi: String, dni: String, telefono: String, residencia:String, fechaNacimiento: Date, foto: String){
+    constructor(nombre: String, apellido: String, email:String, sobreMi: String, dni: String, telefono: String, residencia:String, fechaNacimiento: Date, foto: String, github: String, instagram: String, linkedin: String){
         this.nombre = nombre;
         this.apellido = apellido;
         this.residencia = residencia;
@@ -18,6 +21,9 @@ export class Persona {
         this.telefono = telefono;
         this.sobreMi = sobreMi;
         this.foto = foto;
+        this.github = github;
+        this.instagram = instagram;
+        this.linkedin = linkedin;
     }
 
 }
