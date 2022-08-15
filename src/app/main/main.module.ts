@@ -6,6 +6,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ContactComponent } from './contact/contact.component';
 import { EducationComponent } from './education/education.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { JobComponent } from './job/job.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     ProjectsComponent,
     ContactComponent,
     EducationComponent,
+    JobComponent,
   ],
   imports: [CommonModule, NgCircleProgressModule.forRoot({
     radius: 100,
@@ -28,7 +30,8 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     SkillsComponent,
     ProjectsComponent,
     ContactComponent,
-    EducationComponent,    
+    EducationComponent,
+    JobComponent,
   ],
 })
 export class MainModule {}
