@@ -16,20 +16,19 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     EducationComponent,
   ],
   imports: [CommonModule, NgCircleProgressModule.forRoot({
-    
     radius: 100,
     outerStrokeWidth: 16,
     innerStrokeWidth: 8,
-    outerStrokeColor: "#78C000",
-    innerStrokeColor: "#C7E596",
-    animationDuration: 300,    
-  })],
+    outerStrokeColor: '#78C000',
+    innerStrokeColor: '#C7E596',
+    animationDuration: 300,
+  }),],
   exports: [
     AboutComponent,
     SkillsComponent,
     ProjectsComponent,
     ContactComponent,
-    EducationComponent,
+    EducationComponent,    
   ],
 })
 export class MainModule {}

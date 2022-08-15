@@ -10,11 +10,21 @@ import { LoginComponent } from './components/login/login.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { CoreModule } from './core/core.module';
 import { MainModule } from './main/main.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, PortfolioComponent],    
-  imports:[CommonModule,BrowserModule, CoreModule, MainModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
-  bootstrap: [AppComponent],  
+  declarations: [AppComponent, LoginComponent, PortfolioComponent],
+  imports: [
+    CommonModule,
+    BrowserModule,
+    CoreModule,
+    MainModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,    
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
