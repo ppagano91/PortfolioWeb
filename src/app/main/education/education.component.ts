@@ -21,7 +21,11 @@ export class EducationComponent implements OnInit {
 
   obtenerTodaFormacionAcademica():void{
     this.educacionService.getEducaciones().subscribe(data=>{
-      console.log("educaciones\n",data)
+      console.log("educaciones\n",data);
+      data.forEach(element => {
+        element.fechaInicio=new Date(element.fechaInicio);
+        element.fechaFin=new Date(element.fechaFin);
+      });
       this.educaciones=data});
   }
 
