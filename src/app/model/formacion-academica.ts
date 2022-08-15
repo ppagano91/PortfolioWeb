@@ -1,5 +1,5 @@
 export class FormacionAcademica {
-    id?: Integer;
+    id?: Number;
     titulo: String;
     descripcion: String;
     fechaInicio: Date;
