@@ -15,5 +15,25 @@ export class ExperienciaLaboralService {
     return this.http.get<ExperienciaLaboral[]>(this.url+"ver/trabajos")
   }
 
+  public listExperience(): Observable<ExperienciaLaboral[]>{
+    return this.http.get<ExperienciaLaboral[]>(this.url+"ver/experiencialaboral")
+  }
+
+  public detailExperience(id:number):Observable<ExperienciaLaboral>{
+    return this.http.get<ExperienciaLaboral>(this.url+`ver/${id}`)
+  }
+
+  public saveExperience(experiencia:ExperienciaLaboral): Observable<any>{
+    return this.http.post<any>(this.url+"new",experiencia)
+  }
+
+  public updateExperience(id:number, experiencia:ExperienciaLaboral):Observable<any>{
+    return this.http.put<any>(this.url+`update/${id}`,experiencia)
+  }
+
+  public deleteExperience(id:number):Observable<any>{
+    return this.http.delete<any>(this.url+`delete/${id}`)
+  }
+
 
 }
