@@ -9,11 +9,14 @@ import { ExperienciaLaboralService } from 'src/app/services/experiencia_laboral/
 })
 export class JobComponent implements OnInit {
   trabajos:ExperienciaLaboral[]=[];
+  trabajo: ExperienciaLaboral = new ExperienciaLaboral("","",new Date, new Date,false,"");
 
+  // Agregar TokenService cuando se haga
   constructor(private experienciaService: ExperienciaLaboralService) {}
 
   ngOnInit(): void {
     this.obtenerTodaExperiencaLaboral();
+    // this.cargarExperiencia();
   }
 
   obtenerTodaExperiencaLaboral():void{
@@ -25,6 +28,10 @@ export class JobComponent implements OnInit {
       console.log("Fecha\n",data[0].fechaInicio.toLocaleString("es-ES", { month: "long" }));
       this.trabajos=data;
     })
+  }
+
+  cargarExperiencia():void{
+    this.experienciaService.listExperience().subscribe(data=>this.trabajos=data)
   }
 
 }
