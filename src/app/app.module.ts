@@ -11,6 +11,7 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { CoreModule } from './core/core.module';
 import { MainModule } from './main/main.module';
 import { HttpClientModule } from '@angular/common/http';
+// import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,    
+    HttpClientModule,
+    // NoopAnimationsModule,    
   ],
   bootstrap: [AppComponent],
 })
