@@ -4,11 +4,13 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { RouterModule, Routes } from '@angular/router';
 import { CoreModule } from './core/core.module';
 import { MainModule } from './main/main.module';
+import { NewJobComponent } from './main/job/new-job/new-job.component';
 
 const routes: Routes=[
   {path:"portfolio", component: PortfolioComponent},
-  {path:"login", component: LoginComponent},
-  {path:"", redirectTo:"login", pathMatch:"full"}
+  // {path:"login", component: LoginComponent},
+  {path:'nuevaexperiencia',component: NewJobComponent},
+  {path:"", redirectTo:"portfolio", pathMatch:"full"},
 ];
 @NgModule({
     declarations:[],

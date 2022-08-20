@@ -8,6 +8,8 @@ import { EducationComponent } from './education/education.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { JobComponent } from './job/job.component';
 import { NewJobComponent } from './job/new-job/new-job.component';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,7 @@ import { NewJobComponent } from './job/new-job/new-job.component';
     JobComponent,
     NewJobComponent,
   ],
-  imports: [CommonModule, NgCircleProgressModule.forRoot({
+  imports: [CommonModule, RouterModule, FormsModule, NgCircleProgressModule.forRoot({
     radius: 100,
     outerStrokeWidth: 16,
     innerStrokeWidth: 8,
@@ -34,6 +36,8 @@ import { NewJobComponent } from './job/new-job/new-job.component';
     ContactComponent,
     EducationComponent,
     JobComponent,
+    NewJobComponent,
+    
   ],
 })
 export class MainModule {}
