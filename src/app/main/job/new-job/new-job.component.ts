@@ -15,6 +15,8 @@ export class NewJobComponent implements OnInit {
   fechaFin:Date=new Date();
   esTrabajoActual:boolean=false;
   tipoEmpleo:String="";
+  empresa:String="";
+  tipoJornada:String=""
 
 
 
@@ -25,7 +27,7 @@ export class NewJobComponent implements OnInit {
   }
 
   onCreate():void{
-    const nuevaExperiencia = new ExperienciaLaboral(this.nombre,this.descripcion,this.fechaInicio,this.fechaFin,this.esTrabajoActual,this.tipoEmpleo)
+    const nuevaExperiencia = new ExperienciaLaboral(this.nombre,this.descripcion,this.fechaInicio,this.fechaFin,this.esTrabajoActual,this.tipoEmpleo,this.empresa,this.tipoJornada)
     this.experienciaService.saveExperience(nuevaExperiencia).subscribe(data=>{
       try {
         alert("Experiencia añadida");
