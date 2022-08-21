@@ -35,4 +35,19 @@ export class JobComponent implements OnInit {
     this.experienciaService.listExperience().subscribe(data=>this.trabajos=data)
   }
 
+  onRemove(id?:number){
+    if(id!=undefined){
+      this.experienciaService.deleteExperience(id).subscribe(
+        data=>{
+          console.log("inicio subscribe")
+          this.obtenerTodaExperiencaLaboral();
+          console.log("fin subscribe")
+        }, err=>{
+          alert("No se pudo borrar la experiencia")
+        }
+
+      )
+    }
+  }
+
 }

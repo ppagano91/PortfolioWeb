@@ -32,7 +32,7 @@ export class ExperienciaLaboralService {
   }
 
   public deleteExperience(id:number):Observable<any>{
-    return this.http.delete<any>(this.url+`delete/${id}`)
+    return this.http.delete<any>(this.url+`remove/${id}`)
   }
 
 
