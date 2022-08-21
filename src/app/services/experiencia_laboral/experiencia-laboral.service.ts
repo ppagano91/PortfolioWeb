@@ -24,7 +24,7 @@ export class ExperienciaLaboralService {
   }
 
   public saveExperience(experiencia:ExperienciaLaboral): Observable<any>{
-    return this.http.post<any>(this.url+"new",experiencia)
+    return this.http.post<any>(this.url+"create",experiencia)
   }
 
   public updateExperience(id:number, experiencia:ExperienciaLaboral):Observable<any>{

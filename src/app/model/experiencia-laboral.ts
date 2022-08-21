@@ -1,15 +1,15 @@
 export class ExperienciaLaboral {
-    id?:Number;
-    nombre: String;
-    descripcion: String;
+    id?:number;
+    nombre: string;
+    descripcion: string;
     fechaInicio: Date;
     fechaFin: Date;
-    esTrabajoActual: Boolean;
-    tipoEmpleo: String;
-    empresa:String;
-    tipoJornada:String;
+    esTrabajoActual: boolean;
+    tipoEmpleo: string;
+    empresa:string;
+    tipoJornada:string;
 
-    constructor(nombre: String,descripcion: String, fechaInicio: Date, fechaFin: Date, esTrabajoActual: Boolean, tipoEmpleo: String, empresa:String,tipoJornada:String){
+    constructor(nombre: string,descripcion: string, fechaInicio: Date, fechaFin: Date, esTrabajoActual: boolean, tipoEmpleo: string, empresa:string,tipoJornada:string){
         this.nombre=nombre;
         this.descripcion=descripcion;
         this.fechaInicio=fechaInicio;
