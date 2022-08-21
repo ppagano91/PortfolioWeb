@@ -6,39 +6,49 @@ import { ExperienciaLaboralService } from 'src/app/services/experiencia_laboral/
 @Component({
   selector: 'app-new-job',
   templateUrl: './new-job.component.html',
-  styleUrls: ['./new-job.component.css']
+  styleUrls: ['./new-job.component.css'],
 })
 export class NewJobComponent implements OnInit {
-  nombre:String="";
-  descripcion:String="";
-  fechaInicio:Date=new Date();
-  fechaFin:Date=new Date();
-  esTrabajoActual:boolean=false;
-  tipoEmpleo:String="";
-  empresa:String="";
-  tipoJornada:String=""
-
-
-
-
-  constructor(private experienciaService: ExperienciaLaboralService, private router: Router) {}
-
-  ngOnInit(): void {
+  public formData: ExperienciaLaboral={
+    nombre: '',
+    descripcion: '',
+    fechaInicio: new Date(),
+    fechaFin: new Date("YYYY-MM-DD"),
+    esTrabajoActual: false,
+    tipoEmpleo: '',
+    empresa: '',
+    tipoJornada: '',
   }
 
-  onCreate():void{
-    const nuevaExperiencia = new ExperienciaLaboral(this.nombre,this.descripcion,this.fechaInicio,this.fechaFin,this.esTrabajoActual,this.tipoEmpleo,this.empresa,this.tipoJornada)
-    this.experienciaService.saveExperience(nuevaExperiencia).subscribe(data=>{
-      try {
-        alert("Experiencia añadida");
-        this.router.navigate(['']);        
-      } catch (error) {
-        alert("Ha ocurrido un error")        
+  constructor(
+    private experienciaService: ExperienciaLaboralService,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {}
+
+  onCreate(): void {
+    const nuevaExperiencia = this.formData;
+    console.log('nuevaExperiencia\n', nuevaExperiencia);
+    this.experienciaService.saveExperience(nuevaExperiencia).subscribe(
+      data => {
+        console.log('data\n', data);
+        alert('Experiencia añadida');
+        this.router.navigate(['']);
+      },
+      error => {
+        alert('Ha ocurrido un error');
         this.router.navigate(['']);
       }
-      
-
-  })
+      // try {
+      //   console.log('data\n', data);
+      //   alert('Experiencia añadida');
+      //   this.router.navigate(['']);
+      // } catch (error) {
+      //   alert('Ha ocurrido un error');
+      //   this.router.navigate(['']);
+      // }
+      //  }
+    );
   }
-
 }
