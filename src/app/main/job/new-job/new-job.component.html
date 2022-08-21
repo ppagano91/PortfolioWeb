@@ -1,42 +1,91 @@
 <div class="container">
   <div class="row">
-
     <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
       <div class="form-group">
-    <label for="nombre">Nombre Posición</label>
-    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Posición" [(ngModel)]="formData.nombre" required>
-    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        <label for="nombre">Nombre Posición</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombre"
+          name="nombre"
+          placeholder="Posición"
+          [(ngModel)]="formData.nombre"
+          required
+        />
+        <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+      </div>
+      <div class="form-group">
+        <label for="empresa">Empresa</label>
+        <input
+          type="text"
+          class="form-control"
+          id="empresa"
+          name="empresa"
+          placeholder="Empresa"
+          [(ngModel)]="formData.empresa"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="tipoJornada">Tipo Jornada</label>
+        <select
+          name="tipoJornada"
+          id="tipoJornada"
+          [(ngModel)]="formData.tipoJornada"
+        >
+          <option value="Jornada Completa" selected>Jornada Completa</option>
+          <option value="Jornada Parcial">Jornada Parcial</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="descripcion">Descripción de la posición</label>
+        <textarea          
+          rows="5"
+          cols="50"
+          class="form-control"
+          id="descripcion"
+          name="descripcion"
+          placeholder="Descripción"
+          [(ngModel)]="formData.descripcion"
+          required
+        ></textarea>
+      </div>
+      <div class="form-group">
+        <label for="fechaInicio">Fecha Inicio</label>
+        <input
+          type="date"
+          class="form-control"
+          id="fechaInicio"
+          name="fechaInicio"
+          [(ngModel)]="formData.fechaInicio"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          id="esTrabajoActual"
+          [(ngModel)]="formData.esTrabajoActual"
+          [ngModelOptions]="{ standalone: true }"
+        />
+        <label class="form-check-label" for="esTrabajoActual"
+          >Trabajo actual</label
+        >
+      </div>
+      <div class="form-group">
+        <label for="fechaFin">Fecha Fin</label>
+        <input
+          type="date"
+          class="form-control"
+          id="fechaFin"
+          name="fechaFin"
+          [(ngModel)]="formData.fechaFin"
+          [disabled]="formData.esTrabajoActual == true"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-success">Guardar</button>
+      <button type="button" class="btn btn-danger" routerLink="/portfolio">Cancelar</button>
+    </form>
   </div>
-  <div class="form-group">
-    <label for="empresa">Empresa</label>
-    <input type="text" class="form-control" id="empresa" name="empresa" placeholder="Empresa" [(ngModel)]="formData.empresa" required>
-  </div>
-  <div class="form-group">
-    <label for="tipoJornada" >Tipo Jornada</label>
-    <select name="tipoJornada" id="tipoJornada" [(ngModel)]="formData.tipoJornada">
-      <option value="Jornada Completa" selected>Jornada Completa</option>
-      <option value="Jornada Parcial">Jornada Parcial</option>        
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="descripcion">Descripción de la posición</label>
-    <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripción" [(ngModel)]="formData.descripcion" required>
-  </div>
-  <div class="form-group">
-    <label for="fechaInicio">Fecha Inicio</label>
-    <input type="date" class="form-control" id="fechaInicio" name="fechaInicio" [(ngModel)]="formData.fechaInicio">
-  </div>
-  <div class="form-group">
-    <input type="checkbox" class="form-check-input" id="esTrabajoActual" [(ngModel)]="formData.esTrabajoActual" [ngModelOptions]="{standalone: true}">
-    <label class="form-check-label" for="esTrabajoActual">Trabajo actual</label>
-  </div>
-  <div class="form-group">
-    <label for="fechaFin">Fecha Fin</label>
-    <input type="date" class="form-control" id="fechaFin" name="fechaFin" [(ngModel)]="formData.fechaFin" [disabled]="formData.esTrabajoActual==true">
-  </div>
-  
-  <button type="submit" class="btn btn-success">Guardar</button>
-  <button type="button" class="btn btn-danger">Cancelar</button>
-</form>
-</div>
 </div>
