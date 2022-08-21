@@ -10,6 +10,7 @@ import { JobComponent } from './job/job.component';
 import { NewJobComponent } from './job/new-job/new-job.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { EditJobComponent } from './job/edit-job/edit-job.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { RouterModule } from '@angular/router';
     EducationComponent,
     JobComponent,
     NewJobComponent,
+    EditJobComponent,
   ],
   imports: [CommonModule, RouterModule, FormsModule, NgCircleProgressModule.forRoot({
     radius: 100,
