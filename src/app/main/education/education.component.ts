@@ -16,7 +16,7 @@ export class EducationComponent implements OnInit {
   constructor(private educacionService: FormacionAcademicaService) { }
 
   ngOnInit(): void {
-    this.getExperience();
+    this.getEducation();
     // this.obtenerTodaFormacionAcademica();    
   }
 
@@ -29,7 +29,7 @@ export class EducationComponent implements OnInit {
       this.educaciones=data});
   }
 
-  getExperience():void{
+  getEducation():void{
     this.educacionService.listEducation().subscribe(
       data=>{
         data.forEach(
@@ -41,6 +41,18 @@ export class EducationComponent implements OnInit {
         this.educaciones=data;
       }
     )
+  }
+
+  onRemove(id?:number){
+    if(id!=undefined){
+      this.educacionService.deleteEducation(id).subscribe(
+        data=>{
+          this.getEducation();
+        },error=>{
+          alert("No se pudo borrar la educación")
+        }
+      )
+    }
   }
 
 }
