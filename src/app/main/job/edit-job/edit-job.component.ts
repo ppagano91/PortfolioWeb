@@ -32,8 +32,9 @@ export class EditJobComponent implements OnInit {
     this.experienciaService.detailExperience(id).subscribe(
       data=>{
         this.formData=data
+                
       },error=>{
-        alert("Error al modificar experiencia");
+        alert("Error al modificar experiencia en ngOnInit");
         this.router.navigate(['']);
       }
     )
@@ -45,7 +46,7 @@ export class EditJobComponent implements OnInit {
       data=>{
         this.router.navigate(['']);
       },error=>{
-        alert("Error al modificar experiencia");
+        alert("Error al modificar experiencia en onUpdate");
         this.router.navigate(['']);
       }
     )
