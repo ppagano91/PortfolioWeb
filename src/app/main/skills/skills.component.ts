@@ -22,7 +22,7 @@ export class SkillsComponent implements OnInit {
   obtenerTodaTecnologias():void{
     this.tecnologiaService.getTecnologias().subscribe(data=>{
 
-      console.log("data\n",typeof(data[0].nivel))
+      // console.log("data\n",typeof(data[0].nivel))
       this.tecnologias=data;
     })
   }

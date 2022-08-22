@@ -38,10 +38,8 @@ export class JobComponent implements OnInit {
   onRemove(id?:number){
     if(id!=undefined){
       this.experienciaService.deleteExperience(id).subscribe(
-        data=>{
-          console.log("inicio subscribe")
-          this.obtenerTodaExperiencaLaboral();
-          console.log("fin subscribe")
+        data=>{          
+          this.obtenerTodaExperiencaLaboral();          
         }, err=>{
           alert("No se pudo borrar la experiencia")
         }
