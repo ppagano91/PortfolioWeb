@@ -1,35 +1,85 @@
 <section id="educacion" class="container-fluid">
   <div class="container py-4">
     <h2 class="display-6 mb-3 h2-lines">Formación Académica</h2>
+    <div>
+      <button type="button" class="btn btn-success" routerLink="/educacion/new">
+        <i class="fa fa-add"> Agregar Formacion Academica</i>
+      </button>
+    </div>
 
     <ul class="row justify-content-center list-unstyled mt-3">
-
       <li class="col-12 card mb-3" *ngFor="let educacion of educaciones">
         <div class="row g-0">
           <div class="col-md-4 d-flex align-items-center">
             <div class="edu-img">
-              <img src="{{educacion.image}}" alt="image formación académica" class="img-fluid" />
+              <img
+                src="{{ educacion.image ? educacion.image : logo_universidad }}"
+                alt="image formación académica"
+                class="img-fluid"
+              />
             </div>
           </div>
 
           <div class="col-md-8">
             <div class="card-body">
               <h4 class="card-title display-6 text-center">
-                {{educacion.titulo}}
+                {{ educacion.titulo }}
               </h4>
               <p class="card-text fs-4 paragraph-justify">
-                {{educacion.descripcion}}
+                {{ educacion.descripcion }}
               </p>
               <div class="row justify-content-between">
                 <div class="col-md">
-                  <p class="fs-5">
-                    <span class="fw-bolder">Período:</span>{{educacion.fechaInicio.getFullYear()}}-{{educacion.fechaFin.getFullYear()}}                    
+                  <p class="fs-4">
+                    <span
+                      *ngIf="
+                        educacion.estado == 'En curso' ||
+                          educacion.fechaFin == null;
+                        else elseBlock
+                      "
+                      >{{
+                        educacion.fechaInicio.toLocaleString("es-ES", {
+                          month: "long"
+                        })
+                      }}
+                      {{ educacion.fechaInicio.getFullYear() }} -
+                      Actualidad</span
+                    >
+                    <ng-template #elseBlock>
+                      {{
+                        educacion.fechaInicio.toLocaleString("es-ES", {
+                          month: "long"
+                        })
+                      }}
+                      {{ educacion.fechaInicio.getFullYear() }} -
+                      {{
+                        educacion.fechaFin.toLocaleString("es-ES", {
+                          month: "long"
+                        })
+                      }}
+                      {{ educacion.fechaFin.getFullYear() }}
+                    </ng-template>
                   </p>
+                  <!-- <p class="fs-5">
+                    <span class="fw-bolder">Período:</span>{{educacion.fechaInicio.getFullYear()}}-{{educacion.fechaFin?educacion.fechaFin.getFullYear():null}}                    
+                  </p> -->
                 </div>
                 <div class="col-md text-center">
-                  <a href="{{educacion.link}}" target="_blank" class="btn btn-lg">Más info</a>
-                  <button class="btn btn-lg btn-warning m-1"><i class="fa fa-pencil"></i></button>
-                  <button class="btn btn-lg btn-danger m-1"><i class="fa fa-trash"></i></button>
+                  <a
+                    href="{{ educacion.link }}"
+                    target="_blank"
+                    class="btn btn-lg btn-primary"
+                    >Info</a
+                  >
+                  <button
+                    class="btn btn-lg btn-warning m-1"
+                    routerLink="/educacion/edit/{{ educacion.id }}"
+                  >
+                    <i class="fa fa-pencil"></i>
+                  </button>
+                  <button class="btn btn-lg btn-danger m-1">
+                    <i class="fa fa-trash"></i>
+                  </button>
                 </div>
               </div>
             </div>
