@@ -1,16 +1,18 @@
 export class FormacionAcademica {
-    id?: Number;
-    titulo: String;
-    descripcion: String;
+    id?: number;
+    titulo: string;
+    descripcion: string;
+    institucion: string;
     fechaInicio: Date;
     fechaFin: Date;
-    estado: String;
-    link: String;
-    image: String;
+    estado: string;
+    link: string;
+    image: string;
 
-    constructor(titulo:String, descripcion: String, fechaInicio: Date, fechaFin: Date, estado: String, link: String, image: String){
+    constructor(titulo:string, descripcion: string, institucion: string, fechaInicio: Date, fechaFin: Date, estado: string, link: string, image: string){
         this.titulo=titulo;
         this.descripcion=descripcion;
+        this.institucion=institucion;
         this.fechaInicio=fechaInicio;
         this.fechaFin=fechaFin;
         this.estado=estado;
