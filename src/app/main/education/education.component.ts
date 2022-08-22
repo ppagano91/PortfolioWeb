@@ -9,8 +9,9 @@ import { FormacionAcademicaService } from 'src/app/services/formacion_academica/
   styleUrls: ['./education.component.css']
 })
 export class EducationComponent implements OnInit {
-  educacion:FormacionAcademica = new FormacionAcademica("","",new Date(),new Date(),"","","");
+  educacion:FormacionAcademica = new FormacionAcademica("","","",new Date,new Date,"","","");
   educaciones: FormacionAcademica[]=[];
+  public logo_universidad:String="./../../../assets/images/logo_universidad2.png"
   
   constructor(private educacionService: FormacionAcademicaService) { }
 
@@ -23,7 +24,7 @@ export class EducationComponent implements OnInit {
     this.educacionService.getEducaciones().subscribe(data=>{      
       data.forEach(element => {
         element.fechaInicio=new Date(element.fechaInicio);
-        element.fechaFin=new Date(element.fechaFin);
+        element.fechaFin=null;
       });
       this.educaciones=data});
   }
