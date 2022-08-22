@@ -26,7 +26,7 @@ export class JobComponent implements OnInit {
         element.fechaFin=new Date(element.fechaFin);
              
       });      
-      console.log("Fecha\n",data[0].fechaInicio.toLocaleString("es-ES", { month: "long" }));
+      // console.log("Fecha\n",data[0].fechaInicio.toLocaleString("es-ES", { month: "long" }));
       this.trabajos=data;
     })
   }

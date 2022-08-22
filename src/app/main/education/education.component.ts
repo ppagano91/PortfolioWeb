@@ -15,18 +15,31 @@ export class EducationComponent implements OnInit {
   constructor(private educacionService: FormacionAcademicaService) { }
 
   ngOnInit(): void {
-    this.obtenerTodaFormacionAcademica();
-    // console.log("educaciones\n", this.educaciones);    
+    this.getExperience();
+    // this.obtenerTodaFormacionAcademica();    
   }
 
   obtenerTodaFormacionAcademica():void{
-    this.educacionService.getEducaciones().subscribe(data=>{
-      console.log("educaciones\n",data);
+    this.educacionService.getEducaciones().subscribe(data=>{      
       data.forEach(element => {
         element.fechaInicio=new Date(element.fechaInicio);
         element.fechaFin=new Date(element.fechaFin);
       });
       this.educaciones=data});
+  }
+
+  getExperience():void{
+    this.educacionService.listEducation().subscribe(
+      data=>{
+        data.forEach(
+          element=>{
+            element.fechaInicio=new Date(element.fechaInicio);
+            element.fechaFin=new Date(element.fechaFin);
+          }
+        );
+        this.educaciones=data;
+      }
+    )
   }
 
 }
