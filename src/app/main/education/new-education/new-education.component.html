@@ -1,1 +1,109 @@
-<p>new-education works!</p>
+<div class="container">
+    <h3>Nueva Formación Académica</h3>    
+    <div class="row">
+      <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+          <div class="form-group">
+            <label for="institucion">Institución Educativa</label>
+            <input
+              type="text"
+              class="form-control"
+              id="institucion"
+              name="institucion"
+              placeholder="Institucion"
+              [(ngModel)]="formData.institucion"
+              required
+              />
+          </div>
+
+        <div class="form-group">
+            <label for="nombre">Título</label>
+          <input
+            type="text"
+            class="form-control"
+            id="titulo"
+            name="titulo"
+            placeholder="Título de la Educación"
+            [(ngModel)]="formData.titulo"
+            required
+          />
+          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+        
+        <div class="form-group">
+          <label for="descripcion">Descripción</label>
+          <textarea          
+            rows="5"
+            cols="50"
+            class="form-control"
+            id="descripcion"
+            name="descripcion"
+            placeholder="Descripción"
+            [(ngModel)]="formData.descripcion"
+            required
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="fechaInicio">Fecha Inicio</label>
+          <input
+            type="date"
+            class="form-control"
+            id="fechaInicio"
+            name="fechaInicio"
+            [(ngModel)]="formData.fechaInicio"
+          />
+        </div>
+        <div class="form-group">
+          <label for="estado">Estado</label>
+          <select
+            name="estado"
+            id="estado"
+            [(ngModel)]="formData.estado"
+          >
+            <option value="Graduado" selected>Graduado</option>
+            <option value="En curso">En Curso</option>
+            <option value="Abandonado">Abandonado</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="fechaFin">Fecha Fin</label>
+          <input
+            type="date"
+            class="form-control"
+            id="fechaFin"
+            name="fechaFin"
+            disabled="formData.estado=='En curso'"
+            [(ngModel)]="formData.fechaFin"            
+          />
+        </div>
+        <div class="form-group">
+            <label for="institucion">URL</label>
+            <input
+              type="text"
+              class="form-control"
+              id="link"
+              name="link"
+              placeholder="Link de Sitio Web"
+              [(ngModel)]="formData.link"
+              required
+              />
+          </div>
+
+          <!-- Cambiar por un select de Imágenes de logos de Universidades -->
+          <div class="form-group">
+            <label for="institucion">URL de Imagen</label>
+            <input
+              type="text"
+              class="form-control"
+              id="image"
+              name="image"
+              placeholder="image de Sitio Web"
+              [(ngModel)]="formData.image"
+              required
+              />
+          </div>
+  
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <button type="button" class="btn btn-danger" routerLink="/portfolio">Cancelar</button>
+      </form>
+    </div>
+  </div>
