@@ -19,7 +19,7 @@ const routes: Routes=[
   {path:'educacion/new',component:NewEducationComponent},
   {path:'educacion/edit/:id',component:EditEducationComponent},
   {path:'proyecto/new',component:NewProjectComponent},
-  {path:'proyecto/edit/:id',component:EditProjectComponent},
+  {path:'proyecto/update/:id',component:EditProjectComponent},
   {path:"", redirectTo:"portfolio", pathMatch:"full"},
 ];
 @NgModule({

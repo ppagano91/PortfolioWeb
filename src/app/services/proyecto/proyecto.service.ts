@@ -20,7 +20,7 @@ export class ProyectoService {
   }
 
   public detailProject(id:number): Observable<Proyecto>{
-    return this.http.get<Proyecto>(this.url+`ver/${id}`)
+    return this.http.get<Proyecto>(this.url+`get/${id}`)
   }
 
   public saveProject(proyecto: Proyecto): Observable<any>{

@@ -12,8 +12,8 @@
         <div class="card shadow m-3 card-height">
           <div>
             <img
-              src="{{ proyecto.foto }}"
-              alt="Coffee Break"
+              src="{{ proyecto.foto ? proyecto.foto : nuevo_proyecto }}"
+              alt="{{proyecto.titulo}}"
               class="img-fluid project-image"
             />
           </div>
@@ -35,19 +35,19 @@
             <div class="col-md text-center">
               <a
                 href="{{ proyecto.url }}"
-                class="btn btn-lg btn-primary"
+                class="btn btn-primary"
                 target="blank"
                 >Ver Proyecto</a
               >
               <button
-                class="btn btn-warning btn-lg m-1"
-                routerLink="/proyecto/edit/{{ proyecto.id }}"
+                class="btn btn-warning m-1"
+                routerLink="/proyecto/update/{{ proyecto.id }}"
               >
                 <i class="fa fa-pencil"></i>
               </button>
-              <!-- <button class="btn btn-danger btn-lg m-1" (click)="onRemove(proyecto.id)">
+              <button class="btn btn-danger m-1" (click)="onRemove(proyecto.id)">
                   <i class="fa fa-trash"></i>
-                </button> -->
+                </button>
             </div>
           </div>
         </div>
