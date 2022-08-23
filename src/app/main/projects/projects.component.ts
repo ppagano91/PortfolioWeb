@@ -9,6 +9,9 @@ import { ProyectoService } from 'src/app/services/proyecto/proyecto.service';
 })
 export class ProjectsComponent implements OnInit {
   public proyectos:Proyecto[]=[]
+  public nuevo_proyecto:String="./../../../assets/images/nuevo_proyecto3.jpg"
+
+
   constructor(private proyectoService: ProyectoService) { }
 
   ngOnInit(): void {
@@ -32,6 +35,19 @@ export class ProjectsComponent implements OnInit {
       })
       this.proyectos=data;
     })
+  }
+
+  onRemove(id?:number){
+    if(id!=undefined){
+      this.proyectoService.deleteProject(id).subscribe(
+        data=>{          
+          this.getProyectos();          
+        }, err=>{
+          alert("No se pudo borrar el Proyecto")
+        }
+
+      )
+    }
   }
 
 }
