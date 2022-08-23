@@ -13,6 +13,8 @@ import { RouterModule } from '@angular/router';
 import { EditJobComponent } from './job/edit-job/edit-job.component';
 import { NewEducationComponent } from './education/new-education/new-education.component';
 import { EditEducationComponent } from './education/edit-education/edit-education.component';
+import { NewProjectComponent } from './projects/new-project/new-project.component';
+import { EditProjectComponent } from './projects/edit-project/edit-project.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { EditEducationComponent } from './education/edit-education/edit-educatio
     EditJobComponent,
     NewEducationComponent,
     EditEducationComponent,
+    NewProjectComponent,
+    EditProjectComponent,
   ],
   imports: [CommonModule, RouterModule, FormsModule, NgCircleProgressModule.forRoot({
     radius: 100,
