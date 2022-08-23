@@ -8,6 +8,8 @@ import { NewJobComponent } from './main/job/new-job/new-job.component';
 import { EditJobComponent } from './main/job/edit-job/edit-job.component';
 import { EditEducationComponent } from './main/education/edit-education/edit-education.component';
 import { NewEducationComponent } from './main/education/new-education/new-education.component';
+import { EditProjectComponent } from './main/projects/edit-project/edit-project.component';
+import { NewProjectComponent } from './main/projects/new-project/new-project.component';
 
 const routes: Routes=[
   {path:"portfolio", component: PortfolioComponent},
@@ -16,6 +18,8 @@ const routes: Routes=[
   {path:'experiencia/edit/:id',component:EditJobComponent},
   {path:'educacion/new',component:NewEducationComponent},
   {path:'educacion/edit/:id',component:EditEducationComponent},
+  {path:'proyecto/new',component:NewProjectComponent},
+  {path:'proyecto/edit/:id',component:EditProjectComponent},
   {path:"", redirectTo:"portfolio", pathMatch:"full"},
 ];
 @NgModule({
