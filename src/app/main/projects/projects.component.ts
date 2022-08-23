@@ -12,10 +12,20 @@ export class ProjectsComponent implements OnInit {
   constructor(private proyectoService: ProyectoService) { }
 
   ngOnInit(): void {
-    this.getTodoProyectos();
+    // this.getTodoProyectos();
+    this.getProyectos();
   }
 
   getTodoProyectos():void{
+    this.proyectoService.getProyectos().subscribe(data=>{
+      data.forEach(element=>{
+        element.fecha=new Date(element.fecha);
+      })
+      this.proyectos=data;
+    })
+  }
+
+  getProyectos():void{
     this.proyectoService.getProyectos().subscribe(data=>{
       data.forEach(element=>{
         element.fecha=new Date(element.fecha);
