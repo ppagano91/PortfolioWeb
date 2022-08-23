@@ -14,4 +14,26 @@ export class ProyectoService {
   getProyectos():Observable<Proyecto[]>{
     return this.http.get<Proyecto[]>(this.url+"ver/proyectos");
   }
+
+  public listProject():Observable<Proyecto[]>{
+    return this.http.get<Proyecto[]>(this.url+"get/proyectos")
+  }
+
+  public detailProject(id:number): Observable<Proyecto>{
+    return this.http.get<Proyecto>(this.url+`ver/${id}`)
+  }
+
+  public saveProject(proyecto: Proyecto): Observable<any>{
+    return this.http.post<any>(this.url+"create", proyecto)
+  }
+
+  public updateProject(id:number, proyecto: Proyecto): Observable<any>{
+    return this.http.put<any>(this.url+`update/${id}`,proyecto)
+  }
+
+  public deleteProject(id:number): Observable<any>{
+    return this.http.delete<any>(this.url+`remove/${id}`)
+  }
+
+
 }
