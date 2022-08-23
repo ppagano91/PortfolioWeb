@@ -36,4 +36,17 @@ export class SkillsComponent implements OnInit {
     )
   }
 
+  onRemove(id?:number){
+    if(id!=undefined){
+      this.tecnologiaService.deleteSkill(id).subscribe(
+        data=>{          
+          this.getSkills();          
+        }, err=>{
+          alert("No se pudo borrar la Tecnología")
+        }
+
+      )
+    }
+  }
+
 }
