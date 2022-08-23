@@ -16,7 +16,8 @@ export class SkillsComponent implements OnInit {
   constructor(private tecnologiaService: TecnologiaService) { }
 
   ngOnInit(): void {
-    this.obtenerTodaTecnologias();
+    // this.obtenerTodaTecnologias();
+    this.getSkills();
   }
 
   obtenerTodaTecnologias():void{
@@ -25,6 +26,14 @@ export class SkillsComponent implements OnInit {
       // console.log("data\n",typeof(data[0].nivel))
       this.tecnologias=data;
     })
+  }
+
+  getSkills():void{
+    this.tecnologiaService.listSkill().subscribe(
+      data=>{        
+        this.tecnologias=data;
+      }
+    )
   }
 
 }
