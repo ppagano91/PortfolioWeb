@@ -1,37 +1,59 @@
 <section id="proyectos" class="container-fluid">
   <div class="container py-4">
     <h2 class="display-6 mb-3 h2-lines">Proyectos</h2>
+    <div>
+      <button type="button" class="btn btn-success" routerLink="/proyecto/new">
+        <i class="fa fa-add"> Agregar Proyecto</i>
+      </button>
+    </div>
     <!-- <p class="fs-4">Estos son los proyectos realizados:</p> -->
     <div class="row justify-content-center projects-container">
       <div class="col-lg-6" *ngFor="let proyecto of proyectos">
         <div class="card shadow m-3 card-height">
           <div>
             <img
-              src="{{proyecto.foto}}"
+              src="{{ proyecto.foto }}"
               alt="Coffee Break"
               class="img-fluid project-image"
             />
           </div>
           <div class="card-body">
-            <h5 class="card-title display-5 text-center">{{proyecto.titulo}}</h5>
-            <p class="card-text fs-4 text-justify ">
-              {{proyecto.descripcion}}
+            <h5 class="card-title display-5 text-center">
+              {{ proyecto.titulo }}
+            </h5>
+            <p class="card-text fs-4 text-justify">
+              {{ proyecto.descripcion }}
             </p>
           </div>
           <div class="row justify-content-between card-footer">
             <div class="col-md">
-              <p class="fs-4"><span class="fw-bolder">Año:</span> {{proyecto.fecha.getFullYear()}}</p>
+              <p class="fs-4">
+                <span class="fw-bolder">Año:</span>
+                {{ proyecto.fecha.getFullYear() }}
+              </p>
             </div>
             <div class="col-md text-center">
-              <a href="{{proyecto.url}}" class="btn btn-lg" target="blank"
+              <a
+                href="{{ proyecto.url }}"
+                class="btn btn-lg btn-primary"
+                target="blank"
                 >Ver Proyecto</a
               >
+              <button
+                class="btn btn-warning btn-lg m-1"
+                routerLink="/proyecto/edit/{{ proyecto.id }}"
+              >
+                <i class="fa fa-pencil"></i>
+              </button>
+              <!-- <button class="btn btn-danger btn-lg m-1" (click)="onRemove(proyecto.id)">
+                  <i class="fa fa-trash"></i>
+                </button> -->
             </div>
           </div>
         </div>
       </div>
 
-    <!-- <div class="row justify-content-center projects-container">
+      <!-- <div class="row justify-content-center projects-container">
       <div class="col-lg-6">
         <div class="card shadow m-3 card-height">
           <div>
@@ -91,7 +113,6 @@
           </div>
         </div>
       </div> -->
-
     </div>
   </div>
 </section>
