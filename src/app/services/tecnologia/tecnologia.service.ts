@@ -12,4 +12,24 @@ export class TecnologiaService {
   getTecnologias():Observable<Tecnologia[]>{
     return this.http.get<Tecnologia[]>(this.url+"ver/tecnologias");
   }
+
+  public listSkill(): Observable<Tecnologia[]>{
+    return this.http.get<Tecnologia[]>(this.url+"get/tecnologias")
+  }
+
+  public detailSkill(id:number):Observable<Tecnologia>{
+    return this.http.get<Tecnologia>(this.url+`get/${id}`)
+  }
+
+  public saveSkill(tecnologia:Tecnologia): Observable<any>{
+    return this.http.post<any>(this.url+"create",tecnologia)
+  }
+
+  public updateSkill(id:number, tecnologia:Tecnologia):Observable<any>{
+    return this.http.put<any>(this.url+`update/${id}`,tecnologia)
+  }
+
+  public deleteSkill(id:number):Observable<any>{
+    return this.http.delete<any>(this.url+`remove/${id}`)
+  }
 }
