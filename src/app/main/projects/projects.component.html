@@ -2,7 +2,12 @@
   <div class="container py-4">
     <h2 class="display-6 mb-3 h2-lines">Proyectos</h2>
     <div>
-      <button type="button" class="btn btn-success" routerLink="/proyecto/new">
+      <button
+        type="button"
+        class="btn btn-success"
+        routerLink="/proyecto/new"
+        *ngIf="isLogged"
+      >
         <i class="fa fa-add"> Agregar Proyecto</i>
       </button>
     </div>
@@ -13,7 +18,7 @@
           <div>
             <img
               src="{{ proyecto.foto ? proyecto.foto : nuevo_proyecto }}"
-              alt="{{proyecto.titulo}}"
+              alt="{{ proyecto.titulo }}"
               class="img-fluid project-image"
             />
           </div>
@@ -39,15 +44,20 @@
                 target="blank"
                 >Ver Proyecto</a
               >
-              <button
-                class="btn btn-warning m-1"
-                routerLink="/proyecto/update/{{ proyecto.id }}"
-              >
-                <i class="fa fa-pencil"></i>
-              </button>
-              <button class="btn btn-danger m-1" (click)="onRemove(proyecto.id)">
+              <span *ngIf="isLogged">
+                <button
+                  class="btn btn-warning m-1"
+                  routerLink="/proyecto/update/{{ proyecto.id }}"
+                >
+                  <i class="fa fa-pencil"></i>
+                </button>
+                <button
+                  class="btn btn-danger m-1"
+                  (click)="onRemove(proyecto.id)"
+                >
                   <i class="fa fa-trash"></i>
                 </button>
+              </span>
             </div>
           </div>
         </div>

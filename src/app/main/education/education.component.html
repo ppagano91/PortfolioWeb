@@ -2,7 +2,7 @@
   <div class="container py-4">
     <h2 class="display-6 mb-3 h2-lines">Formación Académica</h2>
     <div>
-      <button type="button" class="btn btn-success" routerLink="/educacion/new">
+      <button type="button" class="btn btn-success" routerLink="/educacion/new" *ngIf="isLogged">
         <i class="fa fa-add"> Agregar Formacion Academica</i>
       </button>
     </div>
@@ -71,7 +71,8 @@
                     class="btn btn-lg btn-primary m-1"
                     >Info</a
                   >
-                  <button
+                  <span *ngIf="isLogged">
+                    <button
                     class="btn btn-lg btn-warning m-1"
                     routerLink="/educacion/edit/{{ educacion.id }}"
                   >
@@ -80,6 +81,7 @@
                   <button class="btn btn-lg btn-danger m-1" (click)="onRemove(educacion.id)">
                     <i class="fa fa-trash"></i>
                   </button>
+                </span>
                 </div>
               </div>
             </div>

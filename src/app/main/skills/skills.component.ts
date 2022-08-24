@@ -8,7 +8,8 @@ import { TecnologiaService } from 'src/app/services/tecnologia/tecnologia.servic
   styleUrls: ['./skills.component.css']
 })
 export class SkillsComponent implements OnInit {
-  public tecnologias:Tecnologia[]=[];  
+  public tecnologias:Tecnologia[]=[]; 
+  public isLogged:boolean=false; 
   /*
   Debería hacer 3 llamadas a la api o funciones, para separar las habilidades en Softwares, Lenguajes y otras habilidades
   No funciona el ng-circle-progress
@@ -18,6 +19,7 @@ export class SkillsComponent implements OnInit {
   ngOnInit(): void {
     // this.obtenerTodaTecnologias();
     this.getSkills();
+    this.isLogged=(localStorage.getItem("isLogged")=="true")
   }
 
   obtenerTodaTecnologias():void{

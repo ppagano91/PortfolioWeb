@@ -10,6 +10,8 @@ import { ProyectoService } from 'src/app/services/proyecto/proyecto.service';
 export class ProjectsComponent implements OnInit {
   public proyectos:Proyecto[]=[]
   public nuevo_proyecto:String="./../../../assets/images/nuevo_proyecto3.jpg"
+  public isLogged: boolean=false
+  
 
 
   constructor(private proyectoService: ProyectoService) { }
@@ -17,6 +19,7 @@ export class ProjectsComponent implements OnInit {
   ngOnInit(): void {
     // this.getTodoProyectos();
     this.getProyectos();
+    this.isLogged=(localStorage.getItem("isLogged")=="true")
   }
 
   getTodoProyectos():void{

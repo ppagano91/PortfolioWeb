@@ -12,12 +12,14 @@ export class EducationComponent implements OnInit {
   educacion:FormacionAcademica = new FormacionAcademica("","","",new Date,new Date,"","","");
   educaciones: FormacionAcademica[]=[];
   public logo_universidad:String="./../../../assets/images/logo_universidad2.png"
+  public isLogged: boolean=false
   
   constructor(private educacionService: FormacionAcademicaService) { }
 
   ngOnInit(): void {
     this.getEducation();
-    // this.obtenerTodaFormacionAcademica();    
+    // this.obtenerTodaFormacionAcademica();
+    this.isLogged=(localStorage.getItem("isLogged")=="true")
   }
 
   obtenerTodaFormacionAcademica():void{

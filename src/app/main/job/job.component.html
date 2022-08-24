@@ -2,7 +2,7 @@
   <div class="container py-4">
     <h2 class="display-6 mb-3 h2-lines">Experiencia Laboral</h2>
     <div>
-      <button type="button" class="btn btn-success" routerLink='/experiencia/new'>
+      <button type="button" class="btn btn-success" routerLink='/experiencia/new' *ngIf="isLogged">
         <i class="fa fa-add"> Agregar Experiencia</i>        
       </button>
     </div>
@@ -13,7 +13,7 @@
           <div class="row justify-content-between">
             <div class="col-md d-flex justify-content-between">
               <h4 class="card-title display-6">{{experiencia.nombre}}</h4>
-              <div>
+              <div *ngIf="isLogged">
                 <button class="btn btn-warning btn-lg m-1" routerLink="/experiencia/edit/{{experiencia.id}}">
                   <i class="fa fa-pencil"></i>
                 </button>
