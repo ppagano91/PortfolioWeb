@@ -15,7 +15,7 @@ import { EditSkillComponent } from './main/skills/edit-skill/edit-skill.componen
 
 const routes: Routes=[
   {path:"portfolio", component: PortfolioComponent},
-  // {path:"login", component: LoginComponent},
+  {path:"login", component: LoginComponent},
   {path:'experiencia/new',component: NewJobComponent},
   {path:'experiencia/edit/:id',component:EditJobComponent},
   {path:'educacion/new',component:NewEducationComponent},
