@@ -42,6 +42,23 @@
                 <li class="nav-item">
                   <a class="nav-link" href="#contacto">Contacto</a>
                 </li>
+                <div class="nav-item" styles="margin: auto">
+                  <a
+                    class="btn btn-md btn-success"
+                    *ngIf="!isLogged; else elseBlock"
+                    routerLink="/login"
+                  >Login
+                    <i class="fa fa-sign-in" aria-hidden="true"></i>
+                  </a>
+                  <ng-template #elseBlock >
+                    <a
+                      class="btn btn-md btn-warning"
+                      (click)="logout()"                     
+                    >Logout
+                      <i class="fa fa-sign-out" aria-hidden="true" ></i>
+                    </a>
+                  </ng-template>
+                </div>
               </ul>
             </div>
           </div>
