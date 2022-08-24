@@ -70,13 +70,13 @@
             type="date"
             class="form-control"
             id="fechaFin"
-            name="fechaFin"
-            disabled="formData.estado=='En curso'"
-            [(ngModel)]="formData.fechaFin"            
+            name="fechaFin"            
+            [(ngModel)]="formData.fechaFin"
+            [disabled]="formData.estado == 'En curso'"
           />
         </div>
         <div class="form-group">
-            <label for="institucion">URL</label>
+            <label for="institucion">URI</label>
             <input
               type="text"
               class="form-control"
