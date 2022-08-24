@@ -28,7 +28,7 @@
         ></textarea>
       </div>
       <div class="form-group">
-        <label for="url">URL</label>
+        <label for="url">URI</label>
         <input
           type="text"
           class="form-control"
@@ -67,10 +67,10 @@
       </div>
 
       <div class="form-group">
-        <label for="nivel">Nivel</label>        
-        <!-- class="progress" -->
+        <label for="nivel">Nivel ({{formData.nivel}}%)</label>
+        <!-- class="form-range" -->
         <input
-          class="form-range"
+        class="progress"
           name="nivel"
           id="nivel"
           type="range"
