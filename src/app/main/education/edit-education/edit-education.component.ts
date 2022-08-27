@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormacionAcademica } from 'src/app/model/formacion-academica';
 import { FormacionAcademicaService } from 'src/app/services/formacion_academica/formacion-academica.service';
@@ -9,6 +9,7 @@ import { FormacionAcademicaService } from 'src/app/services/formacion_academica/
   styleUrls: ['./edit-education.component.css']
 })
 export class EditEducationComponent implements OnInit {
+  @Input() id: number;
   public formData:FormacionAcademica={
     titulo:'',
     descripcion:'',
@@ -27,7 +28,8 @@ export class EditEducationComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    const id = this.activatedRouter.snapshot.params['id'];
+    // const id = this.activatedRouter.snapshot.params['id'];
+    const id = this.id;
     this.educacionService.detailEducation(id).subscribe(
       data=>{
         this.formData=data;
@@ -59,13 +61,14 @@ export class EditEducationComponent implements OnInit {
   // }
 
   onUpdate():void{
-    const id = this.activatedRouter.snapshot.params['id'];
+    // const id = this.activatedRouter.snapshot.params['id'];
+    const id = this.id;
     if(this.formData.estado=="En curso"){
       this.formData.fechaFin=null;
     }
     this.educacionService.updateEducation(id, this.formData).subscribe(
       data=>{        
-        this.router.navigate([''])
+        window.location.reload();
       }, error=>{
         alert("Error al modificar educación en onUpdate");
         // console.log("error\n",error)
@@ -73,6 +76,9 @@ export class EditEducationComponent implements OnInit {
 
       }
     )
+  }
+  closeModal(){
+    this.educacionService.$modalEditEducation.emit(false);
   }
 
 }

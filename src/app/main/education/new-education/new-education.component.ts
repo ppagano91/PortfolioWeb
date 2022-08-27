@@ -25,19 +25,24 @@ export class NewEducationComponent implements OnInit {
     private router: Router,
   ) { }
 
+  ngOnInit(): void {
+  }
+
   onCreate():void{
     const nuevaEducacion = this.formData;
     this.educacionService.saveEducation(nuevaEducacion).subscribe(
       data=>{
-        this.router.navigate(['']);
+        alert('Educación añadida');
+        window.location.reload(); 
       },
       error=>{
+        alert('Ha ocurrido un error');
         this.router.navigate(['']);
       }
     )
   }
 
-  ngOnInit(): void {
+  closeAddEducationModal(){
+    this.educacionService.$modalAddEducation.emit(false)
   }
-
 }
