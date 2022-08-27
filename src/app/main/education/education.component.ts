@@ -14,12 +14,30 @@ export class EducationComponent implements OnInit {
   public logo_universidad:String="./../../../assets/images/logo_universidad2.png"
   public isLogged: boolean=false
   
+  modalAddEducationSwitch: boolean;
+  modalEditEducationSwitch: boolean;
+
   constructor(private educacionService: FormacionAcademicaService) { }
 
   ngOnInit(): void {
     this.getEducation();
-    // this.obtenerTodaFormacionAcademica();
     this.isLogged=(localStorage.getItem("isLogged")=="true")
+    // this.obtenerTodaFormacionAcademica();    
+    this.educacionService.$modalAddEducation.subscribe(
+      (data) => (this.modalAddEducationSwitch = data)
+    );
+
+    this.educacionService.$modalEditEducation.subscribe(
+      (data) => (this.modalEditEducationSwitch = data)
+    );
+  }
+
+  openAddEducationModal() {
+    this.modalAddEducationSwitch = true;
+  }
+
+  openEditEducationModal() {
+    this.modalEditEducationSwitch = true;
   }
 
   obtenerTodaFormacionAcademica():void{

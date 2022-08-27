@@ -2,9 +2,17 @@
   <div class="container py-4">
     <h2 class="display-6 mb-3 h2-lines">Formación Académica</h2>
     <div>
-      <button type="button" class="btn btn-success" routerLink="/educacion/new" *ngIf="isLogged">
+      <button
+        type="button"
+        class="btn btn-success"        
+        *ngIf="isLogged"
+        (click)="openAddEducationModal()"
+      >
         <i class="fa fa-add"> Agregar Formacion Academica</i>
       </button>
+      <div *ngIf="modalAddEducationSwitch == true">
+        <app-new-education></app-new-education>
+      </div>
     </div>
 
     <ul class="row justify-content-center list-unstyled mt-3">
@@ -73,15 +81,22 @@
                   >
                   <span *ngIf="isLogged">
                     <button
-                    class="btn btn-lg btn-warning m-1"
-                    routerLink="/educacion/edit/{{ educacion.id }}"
-                  >
-                    <i class="fa fa-pencil"></i>
-                  </button>
-                  <button class="btn btn-lg btn-danger m-1" (click)="onRemove(educacion.id)">
-                    <i class="fa fa-trash"></i>
-                  </button>
-                </span>
+                      class="btn btn-lg btn-warning m-1"
+                      (click)="openEditEducationModal()"
+                    >
+                      <i class="fa fa-pencil"></i>
+                    </button>
+                    <div *ngIf="modalEditEducationSwitch == true">
+                      <app-edit-education [id]="educacion.id"></app-edit-education>
+                    </div>
+
+                    <button
+                      class="btn btn-lg btn-danger m-1"
+                      (click)="onRemove(educacion.id)"
+                    >
+                      <i class="fa fa-trash"></i>
+                    </button>
+                  </span>
                 </div>
               </div>
             </div>
