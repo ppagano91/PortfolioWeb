@@ -12,6 +12,8 @@ export class JobComponent implements OnInit {
   trabajo: ExperienciaLaboral = new ExperienciaLaboral("","",new Date, new Date,false,"","","");
   public isLogged: boolean=false;
 
+  modalSwitch:boolean;
+
   // Agregar TokenService cuando se haga
   constructor(private experienciaService: ExperienciaLaboralService) {}
 
@@ -19,6 +21,13 @@ export class JobComponent implements OnInit {
     this.obtenerTodaExperiencaLaboral();
     this.isLogged=(localStorage.getItem("isLogged")=="true")
     // this.cargarExperiencia();
+    this.experienciaService.$modal.subscribe(data=>
+      this.modalSwitch=data)
+  }
+
+  openModal(){
+    this.modalSwitch=true;
+
   }
 
   obtenerTodaExperiencaLaboral():void{

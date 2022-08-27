@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ExperienciaLaboral } from 'src/app/model/experiencia-laboral';
 
@@ -7,7 +7,10 @@ import { ExperienciaLaboral } from 'src/app/model/experiencia-laboral';
   providedIn: 'root'
 })
 export class ExperienciaLaboralService {
-  private url:String="http://localhost:8080/experiencia/";  
+  private url:String="http://localhost:8080/experiencia/";
+  $modal = new EventEmitter<any>();
+
+
   constructor(private http: HttpClient) {    
   }
 
