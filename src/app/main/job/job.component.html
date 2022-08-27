@@ -2,10 +2,15 @@
   <div class="container py-4">
     <h2 class="display-6 mb-3 h2-lines">Experiencia Laboral</h2>
     <div>
-      <button type="button" class="btn btn-success" (click)="openModal()" *ngIf="isLogged">
-        <i class="fa fa-add"> Agregar Experiencia</i>        
+      <button
+        type="button"
+        class="btn btn-success"
+        (click)="openAddJobModal()"
+        *ngIf="isLogged"
+      >
+        <i class="fa fa-add"> Agregar Experiencia</i>
       </button>
-      <div *ngIf="modalSwitch==true">
+      <div *ngIf="modalAddJobSwitch == true">
         <app-new-job></app-new-job>
       </div>
     </div>
@@ -15,34 +20,68 @@
         <div class="card-body">
           <div class="row justify-content-between">
             <div class="col-md d-flex justify-content-between">
-              <h4 class="card-title display-6">{{experiencia.nombre}}</h4>
+              <h4 class="card-title display-6">{{ experiencia.nombre }}</h4>
               <div *ngIf="isLogged">
-                <button class="btn btn-warning btn-lg m-1" routerLink="/experiencia/edit/{{experiencia.id}}">
+                <button
+                  class="btn btn-warning btn-lg m-1"
+                  (click)="openEditJobModal()"
+                >                
                   <i class="fa fa-pencil"></i>
                 </button>
-                <button class="btn btn-danger btn-lg m-1" (click)="onRemove(experiencia.id)">
+                <div *ngIf="modalEditJobSwitch == true">
+                  <app-edit-job [id]="experiencia.id"></app-edit-job>
+                </div>
+                <button
+                  class="btn btn-danger btn-lg m-1"
+                  (click)="onRemove(experiencia.id)"
+                >
                   <i class="fa fa-trash"></i>
                 </button>
               </div>
             </div>
-          </div>          
+          </div>
           <div class="col-md">
             <div class="fs-4 fw-bolder">
               <span *ngIf="experiencia.empresa">
-                {{experiencia.empresa}}
+                {{ experiencia.empresa }}
               </span>
               <span *ngIf="experiencia.tipoJornada">
-                - {{experiencia.tipoJornada}}
-              </span>  
+                - {{ experiencia.tipoJornada }}
+              </span>
             </div>
             <p class="fs-4">
-              <span *ngIf="experiencia.esTrabajoActual==true || experiencia.fechaFin==null; else elseBlock">{{experiencia.fechaInicio.toLocaleString("es-ES", { month: "long" })}} {{experiencia.fechaInicio.getFullYear()}} - Actualidad</span>
+              <span
+                *ngIf="
+                  experiencia.esTrabajoActual == true ||
+                    experiencia.fechaFin == null;
+                  else elseBlock
+                "
+                >{{
+                  experiencia.fechaInicio.toLocaleString("es-ES", {
+                    month: "long"
+                  })
+                }}
+                {{ experiencia.fechaInicio.getFullYear() }} - Actualidad</span
+              >
               <ng-template #elseBlock>
-                {{experiencia.fechaInicio.toLocaleString("es-ES", { month: "long" })}} {{experiencia.fechaInicio.getFullYear()}} - {{experiencia.fechaFin.toLocaleString("es-ES", { month: "long" })}} {{experiencia.fechaFin.getFullYear()}}
+                {{
+                  experiencia.fechaInicio.toLocaleString("es-ES", {
+                    month: "long"
+                  })
+                }}
+                {{ experiencia.fechaInicio.getFullYear() }} -
+                {{
+                  experiencia.fechaFin.toLocaleString("es-ES", {
+                    month: "long"
+                  })
+                }}
+                {{ experiencia.fechaFin.getFullYear() }}
               </ng-template>
             </p>
           </div>
-          <p class="card-text fs-4 paragraph-justify">{{experiencia.descripcion}}</p>
+          <p class="card-text fs-4 paragraph-justify">
+            {{ experiencia.descripcion }}
+          </p>
         </div>
       </li>
     </ul>
