@@ -1,7 +1,7 @@
 <div class="container">
   <h3>Nueva Tecnología</h3>
   <div class="row">
-    <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+    <form (ngSubmit)="onCreate()" ngNativeValidate #f="ngForm">
       <div class="form-group">
         <label for="nombre">Nombre</label>
         <input
@@ -35,8 +35,7 @@
           id="url"
           name="url"
           placeholder="Link de la tecnología"
-          [(ngModel)]="formData.url"
-          required
+          [(ngModel)]="formData.url"          
         />
         <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
       </div>
@@ -48,15 +47,14 @@
           id="foto"
           name="foto"
           placeholder="Imagen"
-          [(ngModel)]="formData.foto"
-          required
+          [(ngModel)]="formData.foto"          
         />
         <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
       </div>
 
       <div class="form-group">
         <label for="tipo">Tipo de Tecnología</label>
-        <select name="tipo" id="tipo" [(ngModel)]="formData.tipo">
+        <select name="tipo" id="tipo" [(ngModel)]="formData.tipo" required>
           <option value="Lenguaje de Programación" selected>
             Lenguaje de Programación
           </option>

@@ -1,7 +1,7 @@
 <div class="container" *ngIf="formData">
   <h3>Editar Experiencia</h3>
   <div class="row">
-    <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+    <form (ngSubmit)="onUpdate()" ngNativeValidate #f="ngForm">
       <div class="form-group">
         <label for="nombre">Nombre Posición</label>
         <input
@@ -33,6 +33,7 @@
           name="tipoJornada"
           id="tipoJornada"
           [(ngModel)]="formData.tipoJornada"
+          required
         >
           <option value="Jornada Completa" [selected]>Jornada Completa</option>
           <option value="Jornada Parcial">Jornada Parcial</option>
@@ -59,6 +60,7 @@
           id="fechaInicio"
           name="fechaInicio"
           [(ngModel)]="formData.fechaInicio"
+          required
         />
       </div>
       <div class="form-group">

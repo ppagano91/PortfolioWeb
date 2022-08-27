@@ -1,7 +1,7 @@
 <div class="container">
     <h3>Editar Formación Académica</h3>    
     <div class="row">
-      <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+      <form (ngSubmit)="onUpdate()" ngNativeValidate #f="ngForm">
           <div class="form-group">
             <label for="institucion">Institución Educativa</label>
             <input
@@ -49,6 +49,7 @@
             id="fechaInicio"
             name="fechaInicio"
             [(ngModel)]="formData.fechaInicio"
+            required
           />
         </div>
         <div class="form-group">
@@ -57,7 +58,7 @@
             name="estado"
             id="estado"
             [(ngModel)]="formData.estado"
-            onchange=""
+            required            
           >
             <option value="Graduado" selected>Graduado</option>
             <option value="En curso">En Curso</option>
@@ -84,8 +85,7 @@
               id="link"
               name="link"
               placeholder="Link de Sitio Web"
-              [(ngModel)]="formData.link"
-              required
+              [(ngModel)]="formData.link"              
               />
           </div>
           
@@ -97,8 +97,7 @@
               id="image"
               name="image"
               placeholder="image de Sitio Web"
-              [(ngModel)]="formData.image"
-              required
+              [(ngModel)]="formData.image"              
               />
           </div>
   
