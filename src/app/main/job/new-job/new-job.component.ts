@@ -34,7 +34,8 @@ export class NewJobComponent implements OnInit {
       data => {
         console.log('data\n', data);
         alert('Experiencia añadida');
-        this.router.navigate(['']);
+        window.location.reload();
+        // this.closeModal();
       },
       error => {
         alert('Ha ocurrido un error');
@@ -49,6 +50,9 @@ export class NewJobComponent implements OnInit {
       //   this.router.navigate(['']);
       // }
       //  }
-    );
+    );    
+  }
+  closeModal(){
+    this.experienciaService.$modal.emit(false);
   }
 }
