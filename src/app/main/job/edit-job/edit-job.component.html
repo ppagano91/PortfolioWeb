@@ -1,4 +1,5 @@
-<div class="container" *ngIf="formData">
+<div class="modal-job">
+<div class="container col-5" *ngIf="formData">
   <h3>Editar Experiencia</h3>
   <div class="row">
     <form (ngSubmit)="onUpdate()" ngNativeValidate #f="ngForm">
@@ -34,6 +35,7 @@
           id="tipoJornada"
           [(ngModel)]="formData.tipoJornada"
           required
+          class="select"
         >
           <option value="Jornada Completa" [selected]>Jornada Completa</option>
           <option value="Jornada Parcial">Jornada Parcial</option>
@@ -66,7 +68,7 @@
       <div class="form-group">
         <input
           type="checkbox"
-          class="form-check-input"
+          class="form-check-input checkbox"
           id="esTrabajoActual"
           [(ngModel)]="formData.esTrabajoActual"
           [ngModelOptions]="{ standalone: true }"
@@ -88,9 +90,10 @@
       </div>
 
       <button type="submit" class="btn btn-success">Guardar</button>
-      <button type="button" class="btn btn-danger" routerLink="">
+      <button type="button" class="btn btn-danger" (click)="closeModal()">
         Cancelar
       </button>
     </form>
   </div>
+</div>
 </div>
