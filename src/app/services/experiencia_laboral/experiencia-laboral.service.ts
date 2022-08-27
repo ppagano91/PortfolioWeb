@@ -8,8 +8,8 @@ import { ExperienciaLaboral } from 'src/app/model/experiencia-laboral';
 })
 export class ExperienciaLaboralService {
   private url:String="http://localhost:8080/experiencia/";
-  $modal = new EventEmitter<any>();
-
+  $modalAddJob = new EventEmitter<any>();
+  $modalEditJob = new EventEmitter<any>();
 
   constructor(private http: HttpClient) {    
   }
