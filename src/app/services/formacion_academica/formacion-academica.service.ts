@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FormacionAcademica } from 'src/app/model/formacion-academica';
 
@@ -8,6 +8,8 @@ import { FormacionAcademica } from 'src/app/model/formacion-academica';
 })
 export class FormacionAcademicaService {
   private url="http://localhost:8080/educacion/"
+  $modalAddEducation = new EventEmitter<any>();
+  $modalEditEducation = new EventEmitter<any>();
 
   constructor(private http: HttpClient ) {    
   }
