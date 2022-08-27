@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Tecnologia } from 'src/app/model/tecnologia';
 
@@ -8,6 +8,10 @@ import { Tecnologia } from 'src/app/model/tecnologia';
 })
 export class TecnologiaService {
   private url:String="http://localhost:8080/tecnologia/"
+  $modalAddSkill = new EventEmitter<any>();
+  $modalEditSkill = new EventEmitter<any>();
+
+
   constructor(private http:HttpClient) {}
   getTecnologias():Observable<Tecnologia[]>{
     return this.http.get<Tecnologia[]>(this.url+"ver/tecnologias");
