@@ -29,13 +29,12 @@ export class NewJobComponent implements OnInit {
 
   onCreate(): void {
     const nuevaExperiencia = this.formData;
-    console.log('nuevaExperiencia\n', nuevaExperiencia);
+    // console.log('nuevaExperiencia\n', nuevaExperiencia);
     this.experienciaService.saveExperience(nuevaExperiencia).subscribe(
       data => {
-        console.log('data\n', data);
+        // console.log('data\n', data);
         alert('Experiencia añadida');
-        window.location.reload();
-        // this.closeModal();
+        window.location.reload();        
       },
       error => {
         alert('Ha ocurrido un error');
@@ -52,7 +51,7 @@ export class NewJobComponent implements OnInit {
       //  }
     );    
   }
-  closeModal(){
-    this.experienciaService.$modal.emit(false);
+  closeAddJobModal(){
+    this.experienciaService.$modalAddJob.emit(false);
   }
 }
