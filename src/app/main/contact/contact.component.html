@@ -66,7 +66,7 @@
                           <textarea class="form-control fs-5" placeholder="Dejame tus comentarios" style="height: 100px" required name="mensaje"></textarea>
                       </div>
                   </div>
-                  <button type="button" name="submit" class="btn btn-lg btn-primary">Enviar mensaje</button>
+                  <button type="button" name="submit" class="btn btn-lg btn-primary" (click)="alertMessage()">Enviar mensaje</button>
                   <br>
                   <span><small><strong>*Nota:</strong> El botón es solo de muestra. No envía ningún mensaje</small></span>
               </form>
@@ -74,6 +74,9 @@
           </div>
 
       </div>
-
+      <div class="text-center">
+          <a class="btn btn-success btn-lg m-3" href="https://drive.google.com/file/d/1deH0Jj-VUilv0dLBtyxrXt7M8yJ6g6yk/view?usp=sharing" target="_blank">
+              <i class="fa fa-cloud-arrow-down"> Descarga mi CV</i></a>
+            </div>
   </div>
 </section>
