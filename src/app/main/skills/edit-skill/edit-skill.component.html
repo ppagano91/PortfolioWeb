@@ -1,7 +1,8 @@
-<div class="container">
+<div class="modal-skill">
+  <div class="container col-5">
     <h3>Editar Tecnología</h3>
     <div class="row">
-      <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+      <form (ngSubmit)="onUpdate()" ngNativeValidate #f="ngForm">
         <div class="form-group">
           <label for="nombre">Nombre</label>
           <input
@@ -56,7 +57,7 @@
   
         <div class="form-group">
           <label for="tipo">Tipo de Tecnología</label>
-          <select name="tipo" id="tipo" [(ngModel)]="formData.tipo">
+          <select name="tipo" id="tipo" [(ngModel)]="formData.tipo" class="select" required>
             <option value="Lenguaje de Programación">
               Lenguaje de Programación
             </option>
@@ -67,10 +68,22 @@
         </div>
   
         <div class="form-group">
-          <label for="nivel">Nivel ({{formData.nivel}}%)</label>      
-          <!-- class="form-range" -->
+          <div>
+
+            <label for="nivel" class="m-2">Nivel ({{formData.nivel}}%)</label>      
+            <input
+            class="m-1 col-1"
+            type="number"            
+            id="nivel"
+            name="nivel"
+            placeholder="Nivel"
+            [(ngModel)]="formData.nivel"
+            required
+            />
+          </div>
+            
           <input
-            class="progress"
+            class="progress mb-3"
             name="nivel"
             id="nivel"
             type="range"
@@ -81,9 +94,10 @@
         </div>
   
         <button type="submit" class="btn btn-success">Guardar</button>
-        <button type="button" class="btn btn-danger" routerLink="/portfolio">
+        <button type="button" class="btn btn-danger" (click)="closeModal()">
           Cancelar
         </button>
       </form>
     </div>
   </div>
+</div>

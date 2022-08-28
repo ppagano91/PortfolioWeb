@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Tecnologia } from 'src/app/model/tecnologia';
 import { TecnologiaService } from 'src/app/services/tecnologia/tecnologia.service';
@@ -9,6 +9,7 @@ import { TecnologiaService } from 'src/app/services/tecnologia/tecnologia.servic
   styleUrls: ['./edit-skill.component.css']
 })
 export class EditSkillComponent implements OnInit {
+  @Input() id: number;
   public formData: Tecnologia={
     nombre:"",
     descripcion:"",
@@ -26,7 +27,9 @@ export class EditSkillComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const id = this.activatedRoute.snapshot.params['id'];
+    // const id = this.activatedRoute.snapshot.params['id'];
+    console.log("ngOnInit:",this.id);
+    const id=this.id;
     this.tecnologiaService.detailSkill(id).subscribe(
       data=>{
         this.formData=data;
@@ -37,15 +40,22 @@ export class EditSkillComponent implements OnInit {
     )
   }
   onUpdate():void{
-    const id=this.activatedRoute.snapshot.params['id'];
+    // const id=this.activatedRoute.snapshot.params['id'];
+    // console.log("ngOnInit:",this.id);
+    const id = this.id;
     this.tecnologiaService.updateSkill(id,this.formData).subscribe(
       data=>{
-        this.router.navigate(['']);
+        // this.router.navigate(['']);
+        window.location.reload();
       }, error=>{
         alert("Error al modificar proyecto en onUpdate");
         this.router.navigate(['']);
       }
     )
+  }
+
+  closeModal(){
+    this.tecnologiaService.$modalEditSkill.emit(false);
   }
 
 }
