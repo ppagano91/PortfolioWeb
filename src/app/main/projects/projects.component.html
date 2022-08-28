@@ -45,6 +45,7 @@
                 href="{{ proyecto.url }}"
                 class="btn btn-primary"
                 target="blank"
+                *ngIf="proyecto.url"
                 >Ver Proyecto</a
               >
               <span *ngIf="isLogged">

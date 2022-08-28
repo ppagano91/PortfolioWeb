@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Proyecto } from 'src/app/model/proyecto';
 import { ProyectoService } from 'src/app/services/proyecto/proyecto.service';
@@ -9,6 +9,7 @@ import { ProyectoService } from 'src/app/services/proyecto/proyecto.service';
   styleUrls: ['./edit-project.component.css']
 })
 export class EditProjectComponent implements OnInit {
+  @Input() id: number;
   public formData: Proyecto={
     titulo:"",
     descripcion:"",
@@ -24,7 +25,8 @@ export class EditProjectComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    const id = this.activatedRoute.snapshot.params['id'];
+    // const id = this.activatedRoute.snapshot.params['id'];
+    const id =this.id;
     this.proyectoService.detailProject(id).subscribe(
       data=>{
         this.formData=data;
@@ -36,14 +38,18 @@ export class EditProjectComponent implements OnInit {
   }
 
   onUpdate():void{
-    const id=this.activatedRoute.snapshot.params['id'];
+    // const id=this.activatedRoute.snapshot.params['id'];
+    const id =this.id;
     this.proyectoService.updateProject(id,this.formData).subscribe(
       data=>{
-        this.router.navigate(['']);
+        window.location.reload();
       }, error=>{
         alert("Error al modificar proyecto en onUpdate");
         this.router.navigate(['']);
       }
     )
+  }
+  closeModal(){
+    this.proyectoService.$modalEditProject.emit(false);
   }
 }
