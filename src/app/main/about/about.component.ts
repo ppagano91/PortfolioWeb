@@ -9,12 +9,15 @@ import { PersonaService } from 'src/app/services/persona/persona.service';
 })
 export class AboutComponent implements OnInit {
   persona:Persona = new Persona("","","","","","","",new Date("1991-07-10"),"","","","");
+  public isLogged: boolean=false
+  
   constructor(private personaService: PersonaService) {
 
   }
 
   ngOnInit(): void {
     this.personaService.getPersona().subscribe(data=>{this.persona=data});
+    this.isLogged=(localStorage.getItem("isLogged")=="true")
   }
 
 }

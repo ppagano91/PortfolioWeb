@@ -2,8 +2,17 @@
 <section id="sobre_mi" class="container-fluid about-container">
   <div class="container py-4 about">
     <h2 class="display-6 mb-3 h2-lines about-title">Sobre mí</h2>
-
     <div class="row align-items-center py-3 about-image-container">
+      <span *ngIf="isLogged">
+        <button
+        class="btn btn-lg btn-warning"        
+      >
+        <i class="fa fa-pencil"> Editar Descrpcion</i>
+      </button>
+      <!-- <div *ngIf="modalEditAboutSwitch == true">
+        <app-edit-about></app-edit-about>
+      </div>       -->
+    </span>
       <div class="col-sm-4">
         <img
           src="../../../assets/images/sobre_mi.jpg"
