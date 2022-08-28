@@ -24,12 +24,12 @@
               <div *ngIf="isLogged">
                 <button
                   class="btn btn-warning btn-lg m-1"
-                  (click)="openEditJobModal()"
+                  (click)="openEditJobModal(experiencia.id)"
                 >                
                   <i class="fa fa-pencil"></i>
                 </button>
-                <div *ngIf="modalEditJobSwitch == true">
-                  <app-edit-job [id]="experiencia.id"></app-edit-job>
+                <div *ngIf="modalEditJobSwitch == true" >
+                  <app-edit-job [id]="id"></app-edit-job>
                 </div>
                 <button
                   class="btn btn-danger btn-lg m-1"

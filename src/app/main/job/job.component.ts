@@ -23,6 +23,7 @@ export class JobComponent implements OnInit {
 
   modalAddJobSwitch: boolean;
   modalEditJobSwitch: boolean;
+  public id:number=null;
 
   // Agregar TokenService cuando se haga
   constructor(private experienciaService: ExperienciaLaboralService) {}
@@ -44,7 +45,9 @@ export class JobComponent implements OnInit {
     this.modalAddJobSwitch = true;
   }
 
-  openEditJobModal() {
+  openEditJobModal(id:number) {
+    this.id=id;
+    console.log("openEditJobModal");
     this.modalEditJobSwitch = true;
   }
 
