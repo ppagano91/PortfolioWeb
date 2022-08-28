@@ -11,6 +11,9 @@ export class ProjectsComponent implements OnInit {
   public proyectos:Proyecto[]=[]
   public nuevo_proyecto:String="./../../../assets/images/nuevo_proyecto3.jpg"
   public isLogged: boolean=false
+  modalAddProjectSwitch: boolean;
+  modalEditProjectSwitch: boolean;
+  public id:number=null;
   
 
 
@@ -20,6 +23,22 @@ export class ProjectsComponent implements OnInit {
     // this.getTodoProyectos();
     this.getProyectos();
     this.isLogged=(localStorage.getItem("isLogged")=="true")
+    this.proyectoService.$modalAddProject.subscribe(
+      (data) => (this.modalAddProjectSwitch = data)
+    );
+
+    this.proyectoService.$modalEditProject.subscribe(
+      (data) => (this.modalEditProjectSwitch = data)
+    );
+  }
+
+  openAddProjectModal() {
+    this.modalAddProjectSwitch = true;
+  }
+
+  openEditProjectModal(id:number) {
+    this.id=id;    
+    this.modalEditProjectSwitch = true;
   }
 
   getTodoProyectos():void{

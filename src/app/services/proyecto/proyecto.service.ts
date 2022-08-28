@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Proyecto } from 'src/app/model/proyecto';
 
@@ -8,6 +8,9 @@ import { Proyecto } from 'src/app/model/proyecto';
 })
 export class ProyectoService {
   private url:String="http://localhost:8080/proyecto/"
+
+  $modalAddProject = new EventEmitter<any>();
+  $modalEditProject = new EventEmitter<any>();
 
   constructor(private http:HttpClient) { }
 

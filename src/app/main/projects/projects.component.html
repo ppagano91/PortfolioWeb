@@ -5,11 +5,14 @@
       <button
         type="button"
         class="btn btn-success"
-        routerLink="/proyecto/new"
+        (click)="openAddProjectModal()"
         *ngIf="isLogged"
       >
         <i class="fa fa-add"> Agregar Proyecto</i>
       </button>
+      <div *ngIf="modalAddProjectSwitch == true">
+        <app-new-project></app-new-project>
+      </div>
     </div>
     <!-- <p class="fs-4">Estos son los proyectos realizados:</p> -->
     <div class="row justify-content-center projects-container">
@@ -47,10 +50,14 @@
               <span *ngIf="isLogged">
                 <button
                   class="btn btn-warning m-1"
-                  routerLink="/proyecto/update/{{ proyecto.id }}"
+                  (click)="openEditProjectModal(proyecto.id)"
                 >
                   <i class="fa fa-pencil"></i>
                 </button>
+                <div *ngIf="modalEditProjectSwitch == true" >
+                  <app-edit-project [id]="id"></app-edit-project>
+                </div>
+
                 <button
                   class="btn btn-danger m-1"
                   (click)="onRemove(proyecto.id)"
