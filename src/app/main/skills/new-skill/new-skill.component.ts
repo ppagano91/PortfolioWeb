@@ -40,5 +40,8 @@ export class NewSkillComponent implements OnInit {
       }
     )
   }
+  closeAddSkillModal(){
+    this.tecnologiaService.$modalAddSkill.emit(false);
+  }
 
 }
