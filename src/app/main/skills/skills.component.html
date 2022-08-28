@@ -2,32 +2,51 @@
   <div class="container py-4">
     <h2 class="display-6 mb-3 h2-lines">Habilidades</h2>
     <div *ngIf="isLogged">
-      <button type="button" class="btn btn-success" routerLink='/tecnologia/new'>
-        <i class="fa fa-add"> Agregar Tecnología</i>        
+      <button
+        type="button"
+        class="btn btn-success"
+        (click)="openAddSkillModal()"
+      >
+        <i class="fa fa-add"> Agregar Tecnología</i>
       </button>
+      <div *ngIf="modalAddSkillSwitch == true">
+        <app-new-skill></app-new-skill>
+      </div>
     </div>
     <!-- <h4 class="display-7 mb-3">Frameworks & IDE</h4> -->
     <ul class="row justify-content-center list-unstyled">
       <li class="col-sm-2 g-4" *ngFor="let tecnologia of tecnologias">
-        <img
-          src="{{tecnologia.foto}}"
-          alt=""
-          class="sk-img"
-        />
-        <p class="fs-4 text-center">{{tecnologia.nombre}}</p> 
+        <img src="{{ tecnologia.foto }}" alt="" class="sk-img" />
+        <p class="fs-4 text-center">{{ tecnologia.nombre }}</p>
         <div class="progress">
-        <!-- <div class="progress" *ngIf="tecnologia.tipo=='framework' || tecnologia.tipo=='ide';" > -->
-          <div class="progress-bar bg-success" role="progressbar" [style.width]="tecnologia.nivel+'%'" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          <!-- <div class="progress" *ngIf="tecnologia.tipo=='framework' || tecnologia.tipo=='ide';" > -->
+          <div
+            class="progress-bar bg-success"
+            role="progressbar"
+            [style.width]="tecnologia.nivel + '%'"
+            aria-valuenow="25"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          ></div>
         </div>
         <div class="text-center" *ngIf="isLogged">
-          <button class="btn btn-sm btn-warning m-1" routerLink="/tecnologia/update/{{tecnologia.id}}">
+          <button
+            class="btn btn-sm btn-warning m-1"
+            (click)="openEditSkillModal(tecnologia.id)"
+          >
             <i class="fa fa-pencil"></i>
           </button>
-          <button class="btn btn-sm btn-danger m-1" (click)="onRemove(tecnologia.id)">
+          <div *ngIf="modalEditSkillSwitch == true">
+            <app-edit-skill [id]="id"></app-edit-skill>
+          </div>
+          <button
+            class="btn btn-sm btn-danger m-1"
+            (click)="onRemove(tecnologia.id)"
+          >
             <i class="fa fa-trash"></i>
           </button>
         </div>
-           <!-- <circle-progress
+        <!-- <circle-progress
           *ngIf="tecnologia.tipo=='framework' || tecnologia.tipo=='ide';"          
           [percent]="tecnologia.nivel"
           [radius]="50"
@@ -43,11 +62,10 @@
           [imageWidth]="50"
           >          
         </circle-progress> -->
-        
-        
-      <!-- <ng-template #elseBlock>        
-      </ng-template> -->       
-      </li>     
-    </ul>    
+
+        <!-- <ng-template #elseBlock>        
+      </ng-template> -->
+      </li>
+    </ul>
   </div>
 </section>

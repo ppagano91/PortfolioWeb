@@ -10,6 +10,10 @@ import { TecnologiaService } from 'src/app/services/tecnologia/tecnologia.servic
 export class SkillsComponent implements OnInit {
   public tecnologias:Tecnologia[]=[]; 
   public isLogged:boolean=false; 
+  public id:number;
+
+  modalAddSkillSwitch: boolean;
+  modalEditSkillSwitch: boolean;
   /*
   Debería hacer 3 llamadas a la api o funciones, para separar las habilidades en Softwares, Lenguajes y otras habilidades
   No funciona el ng-circle-progress
@@ -20,6 +24,23 @@ export class SkillsComponent implements OnInit {
     // this.obtenerTodaTecnologias();
     this.getSkills();
     this.isLogged=(localStorage.getItem("isLogged")=="true")
+
+    this.tecnologiaService.$modalAddSkill.subscribe(
+      (data) => (this.modalAddSkillSwitch = data)
+    );
+
+    this.tecnologiaService.$modalEditSkill.subscribe(
+      (data) => (this.modalEditSkillSwitch = data)
+    );
+  }
+
+  openAddSkillModal() {
+    this.modalAddSkillSwitch = true;
+  }
+
+  openEditSkillModal(id:number) {
+    this.id=id;
+    this.modalEditSkillSwitch = true;
   }
 
   obtenerTodaTecnologias():void{
