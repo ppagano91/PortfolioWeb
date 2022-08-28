@@ -30,7 +30,7 @@ export class NewProjectComponent implements OnInit {
     this.proyectoService.saveProject(nuevoProyecto).subscribe(
       data=>{
         alert("Proyecto añadido")
-        this.router.navigate([''])
+        window.location.reload();
       },
       error=>{
         alert("Ha ocurrido un error");
@@ -38,6 +38,9 @@ export class NewProjectComponent implements OnInit {
       }
 
     );
+  }
+  closeAddProjectModal(){
+    this.proyectoService.$modalAddProject.emit(false);
   }
 
 }

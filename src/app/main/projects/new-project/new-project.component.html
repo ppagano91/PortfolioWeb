@@ -1,4 +1,5 @@
-<div class="container">
+<div class="modal-project">
+  <div class="container col-5">
     <h3>Nueva Proyecto</h3>
     <div class="row">
       <form (ngSubmit)="onCreate()" ngNativeValidate #f="ngForm">
@@ -65,8 +66,9 @@
           </div>        
           
         <button type="submit" class="btn btn-success">Guardar</button>
-        <button type="button" class="btn btn-danger" routerLink="/portfolio">Cancelar</button>
+        <button type="button" class="btn btn-danger" (click)="closeAddProjectModal()">Cancelar</button>
       </form>
     </div>
   </div>
+</div>
   
