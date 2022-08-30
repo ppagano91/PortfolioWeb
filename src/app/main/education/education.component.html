@@ -33,6 +33,11 @@
               <h4 class="card-title display-6 text-center">
                 {{ educacion.titulo }}
               </h4>
+              <div class="fs-4 fw-bolder">
+                <span *ngIf="educacion.institucion">
+                  Institución: {{ educacion.institucion }}
+                </span>                
+              </div>
               <p class="card-text fs-4 paragraph-justify">
                 {{ educacion.descripcion }}
               </p>

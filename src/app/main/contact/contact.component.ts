@@ -20,13 +20,16 @@ export class ContactComponent implements OnInit {
     '',
     '',
     '',
+    '',
     ''
   );
   constructor(private personaService: PersonaService) {}
 
   ngOnInit(): void {
     this.personaService.getPersona().subscribe((data) => {
-      this.persona = data;
+      console.log(data)
+      this.persona = data
+      console.log("persona\n",this.persona);;
     });
   }
 

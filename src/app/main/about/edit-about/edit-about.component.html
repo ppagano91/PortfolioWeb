@@ -1,0 +1,27 @@
+<div class="modal-about">
+    <div class="container col-5">
+      <h3>Editar Sobre Mi</h3>
+      <div class="row">
+        <form (ngSubmit)="onUpdate()" ngNativeValidate #f="ngForm">  
+          <div class="form-group">
+            <label for="descripcion">Descripción</label>
+            <textarea
+              rows="5"
+              cols="50"
+              class="form-control"
+              id="descripcion"
+              name="descripcion"
+              placeholder="Descripción"
+              [(ngModel)]="formData.sobreMi"
+              required
+            ></textarea>
+          </div>          
+  
+          <button type="submit" class="btn btn-success">Guardar</button>
+          <button type="button" class="btn btn-danger" (click)="closeModal()">
+            Cancelar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>

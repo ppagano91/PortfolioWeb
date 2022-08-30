@@ -17,6 +17,7 @@ import { NewProjectComponent } from './projects/new-project/new-project.componen
 import { EditProjectComponent } from './projects/edit-project/edit-project.component';
 import { NewSkillComponent } from './skills/new-skill/new-skill.component';
 import { EditSkillComponent } from './skills/edit-skill/edit-skill.component';
+import { EditAboutComponent } from './about/edit-about/edit-about.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { EditSkillComponent } from './skills/edit-skill/edit-skill.component';
     EditProjectComponent,
     NewSkillComponent,
     EditSkillComponent,
+    EditAboutComponent,
   ],
   imports: [CommonModule, RouterModule, FormsModule, NgCircleProgressModule.forRoot({
     radius: 100,
