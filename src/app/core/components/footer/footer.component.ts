@@ -8,7 +8,7 @@ import { PersonaService } from 'src/app/services/persona/persona.service';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-  persona:Persona = new Persona("","","","","","","",new Date("1991-07-10"),"","","","");
+  persona:Persona = new Persona("","","","","","","",new Date("1991-07-10"),"","","","","");
   constructor(private personaService: PersonaService) {}
 
   ngOnInit(): void {

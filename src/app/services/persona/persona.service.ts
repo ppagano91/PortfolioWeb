@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Persona } from '../../model/persona';
 
@@ -9,10 +9,20 @@ import { Persona } from '../../model/persona';
 })
 export class PersonaService {
   url= "http://localhost:8080/persona/";
+  // $modalAddAbout = new EventEmitter<any>();
+  $modalEditAbout = new EventEmitter<any>();
 
   constructor(private http: HttpClient) {}
 
   public getPersona(): Observable<Persona>{
     return this.http.get<Persona>(this.url+'ver/perfil');
+  }
+
+  public detailAboutMe(id:number):Observable<Persona>{
+    return this.http.get<Persona>(this.url+`get/${id}`)
+  }
+
+  public updateAboutMe(id:number, educacion:Persona):Observable<any>{
+    return this.http.put<any>(this.url+`update/${id}`,educacion)
   }
 }
