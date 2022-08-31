@@ -21,6 +21,10 @@
   color: var(--secondary);
 }
 
+.title-job{
+  
+  max-width: 1200px;
+}
 .hero-lines {
   /* display: inline-block; */
   position: relative;

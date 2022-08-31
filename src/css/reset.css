@@ -53,11 +53,12 @@ a {
 
 .btn {
   color: var(--white) !important;
-  background-color: var(--primary) !important;
+  /* background-color: var(--primary) !important; */
 }
 
 .btn:hover {
-  background-color: var(--grey) !important;
+  /* background-color: var(--grey) !important; */
+  scale: 1.1;
   color: var(--dark3-grey) !important;
 }
 
