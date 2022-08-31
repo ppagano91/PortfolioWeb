@@ -12,10 +12,11 @@ import { EditProjectComponent } from './main/projects/edit-project/edit-project.
 import { NewProjectComponent } from './main/projects/new-project/new-project.component';
 import { NewSkillComponent } from './main/skills/new-skill/new-skill.component';
 import { EditSkillComponent } from './main/skills/edit-skill/edit-skill.component';
+import { GuardLoginGuard } from './guards/guard-login.guard';
 
 const routes: Routes=[
   {path:"portfolio", component: PortfolioComponent},
-  {path:"login", component: LoginComponent},
+  {path:"login", component: LoginComponent,canActivate:[GuardLoginGuard]},
   {path:'experiencia/new',component: NewJobComponent},
   {path:'experiencia/edit/:id',component:EditJobComponent},
   {path:'educacion/new',component:NewEducationComponent},
