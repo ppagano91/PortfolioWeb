@@ -8,7 +8,7 @@ import { Persona } from '../../model/persona';
   providedIn: 'root'
 })
 export class PersonaService {
-  url= "http://localhost:8080/persona/";
+  url= "https://pp-portfolio-backend.herokuapp.com/persona/";
   // $modalAddAbout = new EventEmitter<any>();
   $modalEditAbout = new EventEmitter<any>();
 
