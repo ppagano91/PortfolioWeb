@@ -7,7 +7,7 @@ import { FormacionAcademica } from 'src/app/model/formacion-academica';
   providedIn: 'root'
 })
 export class FormacionAcademicaService {
-  private url="https://pp-portfolio-backend.herokuapp.com/educacion/"
+  private url="https://portfoliopaganopatricio.herokuapp.com/educacion/"
   $modalAddEducation = new EventEmitter<any>();
   $modalEditEducation = new EventEmitter<any>();
 

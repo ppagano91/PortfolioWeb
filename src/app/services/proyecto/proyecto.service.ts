@@ -7,7 +7,7 @@ import { Proyecto } from 'src/app/model/proyecto';
   providedIn: 'root'
 })
 export class ProyectoService {
-  private url:String="https://pp-portfolio-backend.herokuapp.com/proyecto/"
+  private url:String="https://portfoliopaganopatricio.herokuapp.com/proyecto/"
 
   $modalAddProject = new EventEmitter<any>();
   $modalEditProject = new EventEmitter<any>();

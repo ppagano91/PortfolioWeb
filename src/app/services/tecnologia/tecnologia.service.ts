@@ -7,7 +7,7 @@ import { Tecnologia } from 'src/app/model/tecnologia';
   providedIn: 'root'
 })
 export class TecnologiaService {
-  private url:String="https://pp-portfolio-backend.herokuapp.com/tecnologia/"
+  private url:String="https://portfoliopaganopatricio.herokuapp.com/tecnologia/"
   $modalAddSkill = new EventEmitter<any>();
   $modalEditSkill = new EventEmitter<any>();
 
