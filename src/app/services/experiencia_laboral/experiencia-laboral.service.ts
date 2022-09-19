@@ -7,7 +7,7 @@ import { ExperienciaLaboral } from 'src/app/model/experiencia-laboral';
   providedIn: 'root'
 })
 export class ExperienciaLaboralService {
-  private url:String="https://portfoliopaganopatricio.herokuapp.com/experienca/";
+  private url:String="https://portfoliopaganopatricio.herokuapp.com/experiencia/";
   $modalAddJob = new EventEmitter<any>();
   $modalEditJob = new EventEmitter<any>();
 
