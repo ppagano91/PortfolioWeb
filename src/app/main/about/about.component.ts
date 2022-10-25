@@ -13,7 +13,7 @@ export class AboutComponent implements OnInit {
     nombre:'',
     apellido:'',
     residencia:'',
-    fechaNacimiento:null,    
+    fechaNacimiento:null,
     email:'',
     telefono:'',
     sobreMi:'',
@@ -26,15 +26,14 @@ export class AboutComponent implements OnInit {
   }
   public isLogged: boolean=false
   modalEditAboutSwitch: boolean;
-  
   constructor(private personaService: PersonaService) {
 
   }
 
   ngOnInit(): void {
     this.personaService.getPersona().subscribe(data=>{
-      console.log("data\n",data);
-      console.log("formData\n",this.formData);
+      // console.log("data\n",data);
+      // console.log("formData\n",this.formData);
       return this.formData=data});
     this.isLogged=(localStorage.getItem("isLogged")=="true")
 
@@ -47,4 +46,3 @@ export class AboutComponent implements OnInit {
     this.modalEditAboutSwitch = true;
   }
 }
-  

@@ -11,7 +11,7 @@ export class ExperienciaLaboralService {
   $modalAddJob = new EventEmitter<any>();
   $modalEditJob = new EventEmitter<any>();
 
-  constructor(private http: HttpClient) {    
+  constructor(private http: HttpClient) {
   }
 
   public getExperiencias(): Observable<ExperienciaLaboral[]>{
