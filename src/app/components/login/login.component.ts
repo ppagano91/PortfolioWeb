@@ -38,27 +38,27 @@ export class LoginComponent implements OnInit {
     return this.form.get('password');
   }
 
-  login(): void {    
-    if (typeof Storage !== undefined) {      
+  login(): void {
+    if (typeof Storage !== undefined) {
       if (
         this.form.value.email == 'argentina@programa.com' &&
-        this.form.value.password == 'argentinaprograma123'
+        this.form.value.password == 'AP123'
       ) {
         localStorage.clear();
         this.isLogged = true;
         localStorage.setItem('email', 'argentina@programa.com');
-        localStorage.setItem('password', 'argentinaprograma123');
+        localStorage.setItem('password', 'AP123');
         localStorage.setItem('isLogged', 'true');
         this.router.navigate(['portfolio'])
       } else if (
         this.form.value.email !== 'argentina@programa.com' &&
-        this.form.value.password == 'argentinaprograma123'
+        this.form.value.password == 'AP123'
       ) {
         alert('El email es incorrecto');
         // LocalStorage no soportado en este navegador
       } else if (
         this.form.value.email == 'argentina@programa.com' &&
-        this.form.value.password !== 'argentinaprograma123'
+        this.form.value.password !== 'AP123'
       ) {
         this.isLogged = false;
         alert('El password es incorrecto');
