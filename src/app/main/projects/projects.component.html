@@ -1,9 +1,77 @@
 <section id="proyectos" class="container-fluid">
   <div class="container py-4">
     <h2 class="display-6 mb-3 h2-lines">Proyectos</h2>
+    <div>
+      <button
+        type="button"
+        class="btn btn-success"
+        (click)="openAddProjectModal()"
+        *ngIf="isLogged"
+      >
+        <i class="fa fa-add"> Agregar Proyecto</i>
+      </button>
+      <div *ngIf="modalAddProjectSwitch == true">
+        <app-new-project></app-new-project>
+      </div>
+    </div>
     <!-- <p class="fs-4">Estos son los proyectos realizados:</p> -->
-
     <div class="row justify-content-center projects-container">
+      <div class="col-lg-6" *ngFor="let proyecto of proyectos">
+        <div class="card shadow m-3 card-height">
+          <div>
+            <img
+              src="{{ proyecto.foto ? proyecto.foto : nuevo_proyecto }}"
+              alt="{{ proyecto.titulo }}"
+              class="img-fluid project-image"
+            />
+          </div>
+          <div class="card-body">
+            <h5 class="card-title display-5 text-center">
+              {{ proyecto.titulo }}
+            </h5>
+            <p class="card-text fs-4 paragraph-justify">
+              {{ proyecto.descripcion }}
+            </p>
+          </div>
+          <div class="row justify-content-between card-footer">
+            <div class="col-md">
+              <p class="fs-4">
+                <span class="fw-bolder">Año:</span>
+                {{ proyecto.fecha.getFullYear() }}
+              </p>
+            </div>
+            <div class="text-center">
+              <a
+                href="{{ proyecto.url }}"
+                class="btn btn-primary"
+                target="blank"
+                *ngIf="proyecto.url"
+                >Ver Proyecto</a
+              >
+              <span *ngIf="isLogged">
+                <button
+                  class="btn btn-warning m-1"
+                  (click)="openEditProjectModal(proyecto.id)"
+                >
+                  <i class="fa fa-pencil"></i>
+                </button>
+                <div *ngIf="modalEditProjectSwitch == true" >
+                  <app-edit-project [id]="id"></app-edit-project>
+                </div>
+
+                <button
+                  class="btn btn-danger m-1"
+                  (click)="onRemove(proyecto.id)"
+                >
+                  <i class="fa fa-trash"></i>
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="row justify-content-center projects-container">
       <div class="col-lg-6">
         <div class="card shadow m-3 card-height">
           <div>
@@ -31,9 +99,9 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="col-lg-6">
+      <!-- <div class="col-lg-6">
         <div class="card shadow m-3 card-height">
           <div>
             <img
@@ -61,10 +129,8 @@
               >
             </div>
           </div>
-
         </div>
-      </div>
-
+      </div> -->
     </div>
   </div>
 </section>
